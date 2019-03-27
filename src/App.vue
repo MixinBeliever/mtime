@@ -13,6 +13,7 @@ export default {
   components: {
     headerBar: headerBar,
     footerBar: footerBar
+    
   }  
 }
 </script>

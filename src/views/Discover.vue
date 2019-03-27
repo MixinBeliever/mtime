@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    这是发现
+      修改后
   </div>
 </template>
 

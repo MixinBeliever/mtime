@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    修改之后
+    安达市大所多奥术大师多奥术大师多
   </div>
 </template>
 

@@ -7,8 +7,8 @@
   </div>
 </template>
 <script>
-import headerBar from './components/headerBar'
-import footerBar from './components/footerBar'
+import headerBar from './components/common/headerBar'
+import footerBar from './components/common/footerBar'
 export default {
   components: {
     headerBar: headerBar,

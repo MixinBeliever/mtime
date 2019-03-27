@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    这是购票
+    修改之后
   </div>
 </template>
 

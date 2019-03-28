@@ -10,6 +10,8 @@ import shopIndex from './views/Shop/router/Index.vue'
 
 import Hit from "./views/Buy/Hit"
 import Coming from "./views/Buy/Coming"
+import Hotcontent from "./views/Index/hot/Hotcontent.vue"
+import Search from "./views/Index/search/Search.vue"
 
 
 Vue.use(Router)
@@ -18,11 +20,7 @@ export default new Router({
   //mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '*',
-      name: 'index',
-      component: Index
-    },
+
     {
       path: '/',
       name: 'index',
@@ -33,6 +31,14 @@ export default new Router({
       name: 'home',
       component: Index
     },
+    {
+      path: '/hotcontent/:hotcontentid',
+      component: Hotcontent,
+     },
+     {
+      path: '/search',
+      component: Search,
+     },
     {
       path: '/buy',
       name: 'buy',

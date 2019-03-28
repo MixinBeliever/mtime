@@ -10,6 +10,8 @@
 
 	   <router-link to="" tag="li" activeClass="active">影评</router-link>     	
      </ul>
+     <router-view></router-view>
+
       <div class="tu">
       	<img src="http://img5.mtime.cn/mg/2017/07/19/103505.79149520.jpg" >
       	
@@ -19,7 +21,6 @@
 
 <script>
 // @ is an alias to /src
-import axios from 'axios'
 import Swiper from 'swiper' //引入swiper js
 import 'swiper/dist/css/swiper.css'
 

@@ -16,7 +16,7 @@
 <script>
 // @ is an alias to /src
 import vue from "vue";
-import hit from "./Buy/Hit";
+// import hit from "./Buy/Hit";
 export default {
   // components:{
   //   hit:hit
@@ -46,7 +46,7 @@ export default {
       }
       li.bgblue{
         background: #1c2635;
-        width:123px;
+        width:125px;
         border-radius: 35px;
         color: #fff;
       }

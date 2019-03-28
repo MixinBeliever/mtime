@@ -5,6 +5,8 @@ import Buy from './views/Buy.vue'
 import Shop from './views/Shop.vue'
 import Discover from './views/Discover.vue'
 import My from './views/My.vue'
+import Hit from "./views/Buy/Hit"
+import Coming from "./views/Buy/Coming"
 
 
 Vue.use(Router)
@@ -31,7 +33,25 @@ export default new Router({
     {
       path: '/buy',
       name: 'buy',
-      component: Buy
+      component: Buy,
+      children:[
+        {
+          path: "hit",
+          component : Hit
+        },
+        {
+          path: "coming",
+          component : Coming
+        },
+        {
+          path :'/',
+          redirect : '/buy/hit'
+        },
+        {
+          path :'*',
+          redirect : '/buy/hit'
+        }
+      ]
     },
     {
       path: '/shop',

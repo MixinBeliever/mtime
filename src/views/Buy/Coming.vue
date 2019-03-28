@@ -1,7 +1,8 @@
 <template>
     <div class="home">
         <h1>最受关注&nbsp;&nbsp;<span>(&nbsp;7部&nbsp;)</span></h1>
-        
+        哈哈哈哈哈哈哈
+        奥术大师大所多
     </div>
 </template>
 <script>

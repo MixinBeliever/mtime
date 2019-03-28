@@ -40,18 +40,18 @@
       <span>(&nbsp;38部&nbsp;)</span>
     </h1>
 
-    <div>
+    <div class="content">
       <ul>
-        <router-link tag="li" to="">
-          <p>月</p>
-          <span></span>
-          <img src="" alt="">
-          <div>
-            <p></p>
-            <p></p>
-            <p></p>
-            <button></button>
-            <button></button>
+        <router-link tag="li" to="" v-for="items in datalistMv" :key="items.id">
+          <p class="Month">{{items.rMonth}}月</p>
+          <span class="Day">{{items.rDay}}日</span>
+          <img :src="items.image" alt="">
+          <div class="titleM">
+            <p>{{items.title}}</p>
+            <p><span>{{items.wantedCount}}</span>人想看 - {{items.type}}</p>
+            <p>导演：{{items.director}}</p>
+            <button>超前预售</button>
+            <button>预告片</button>
           </div>
         </router-link> 
       </ul>
@@ -60,6 +60,7 @@
   </div>
 </template>
 <script>
+import vue from "vue"
 import Swiper from "swiper";
 import axios from "axios";
 import "swiper/dist/css/swiper.min.css";
@@ -77,6 +78,8 @@ export default {
         "/Service/callback.mi/Movie/MovieComingNew.api?locationId=290&t=20193281635090995"
     }).then(res => {
       this.datalist = res.data.attention;
+
+      console.log(res.data.moviecomings)
       this.datalistMv = res.data.moviecomings
       this.$nextTick(() => {
         var mySwiper = new Swiper(".swiper-container", {
@@ -170,6 +173,16 @@ export default {
     margin-top: 20px;
     height: 110px;
     width: 100%;
+  }
+  // 即将预售
+  .content{
+      ul{
+        li{
+            img{
+              width: 30%;
+            }
+        }
+      }
   }
 }
 </style>

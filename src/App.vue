@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-      <headerBar></headerBar>
-      <router-view
-      ></router-view>
+      <headerBar v-show="this.$store.state.isHeaderShow"></headerBar>
+      <router-view></router-view>
       <footerBar></footerBar>
   </div>
 </template>
@@ -10,6 +9,9 @@
 import headerBar from './components/common/headerBar'
 import footerBar from './components/common/footerBar'
 export default {
+  mounted(){
+
+  },
   components: {
     headerBar: headerBar,
     footerBar: footerBar
@@ -25,5 +27,8 @@ export default {
   }
   ul{
     list-style: none;
+  }
+  img{
+    display: block;
   }
 </style>

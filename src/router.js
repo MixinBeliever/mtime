@@ -11,7 +11,7 @@ import shopIndex from './views/Shop/router/Index.vue'
 import Hit from "./views/Buy/Hit"
 import Coming from "./views/Buy/Coming"
 import Hotcontent from "./views/Index/hot/Hotcontent.vue"
-import Search from "./views/Index/search/Search.vue"
+import Searchs from "./views/Index/search/Search.vue"
 
 
 Vue.use(Router)
@@ -37,7 +37,7 @@ export default new Router({
      },
      {
       path: '/search',
-      component: Search,
+      component: Searchs,
      },
     {
       path: '/buy',

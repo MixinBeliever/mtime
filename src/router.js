@@ -5,12 +5,15 @@ import Buy from './views/Buy.vue'
 import Shop from './views/Shop.vue'
 import Discover from './views/Discover.vue'
 import My from './views/My.vue'
+import Search from './views/Shop/router/Search.vue'
+import shopIndex from './views/Shop/router/Index.vue'
+
 
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  //mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
@@ -36,7 +39,25 @@ export default new Router({
     {
       path: '/shop',
       name: 'shop',
-      component: Shop
+      component: Shop,
+      children: [
+        {
+          path: 'search',
+          component: Search
+        },
+        // {
+        //   path: '*',
+        //   redirect: '/shop/index'
+        // },
+        {
+          path: '/',
+          redirect: '/shop/index'
+        },
+        {
+          path: 'index',
+          component: shopIndex
+        }
+      ]
     },
     {
       path: '/discover',

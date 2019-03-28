@@ -16,31 +16,13 @@ import 'swiper/dist/css/swiper.css'
 export default {
     data(){
         return{
-            bannerlist: []
         }
     },
+    props: {
+        bannerlist: Array
+    },
     mounted(){
-        axios({
-            url: '/Service/callback.mi/PageSubArea/MarketFirstPageNew.api?t=2019328891340381',
-
-        }).then(res=>{
-            console.log(res.data);
-            this.bannerlist = res.data.scrollImg;
-            this.$nextTick(()=>{
-                var swiper = new Swiper('.swiper-container', {
-                    spaceBetween: 30,
-                    centeredSlides: true,
-                    autoplay: {
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    }
-                });
-            })
-        })
+        
     }
 }
 </script>

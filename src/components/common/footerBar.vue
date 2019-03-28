@@ -31,6 +31,7 @@ export default {
             line-height: 40px;
             ul{
                 display: flex;
+                background: #fff;
                 li{
                     flex: 1;
                     font-size: 16px;
@@ -40,10 +41,11 @@ export default {
             }
         }
         div.thumbs{
-            height: 20px;
+            height: 40px;
             background: #f6f6f6;
+            line-height: 40px;
             ul{
-                line-height: 20px;
+                line-height: 40px;
                 justify-content: space-around;
                 text-align: center;
                 li{

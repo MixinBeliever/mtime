@@ -5,14 +5,11 @@ import Buy from './views/Buy.vue'
 import Shop from './views/Shop.vue'
 import Discover from './views/Discover.vue'
 import My from './views/My.vue'
-<<<<<<< HEAD
 import Search from './views/Shop/router/Search.vue'
 import shopIndex from './views/Shop/router/Index.vue'
 
-=======
 import Hit from "./views/Buy/Hit"
 import Coming from "./views/Buy/Coming"
->>>>>>> 1fc7f361cc29eb7cfd371bd61fffcc6f4392c175
 
 
 Vue.use(Router)

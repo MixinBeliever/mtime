@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <ul>
-            <router-link tag="li" to="" v-for="item in datalist" :key="item.movieId">
+            <router-link tag="li" to="/details" v-for="item in datalist" :key="item.movieId">
                 <img :src="item.img" />
                 <div class="message">
                     <p>{{item.t}}<span>{{item.r}}</span></p>

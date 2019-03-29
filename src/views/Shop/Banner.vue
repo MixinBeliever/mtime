@@ -40,9 +40,6 @@ export default {
                     pagination: {
                         el: '.swiper-pagination',
                         clickable: true,
-<<<<<<< HEAD
-                    }
-=======
 
                     },
                     navigation: {
@@ -52,17 +49,12 @@ export default {
 
                     });
 
->>>>>>> 504c6551feddd907ec13b4bdf0c0c3be3afd7f76
                 });
             })
     }
 }
 </script>
 <style lang="scss" scoped>
-<<<<<<< HEAD
-=======
-
->>>>>>> 504c6551feddd907ec13b4bdf0c0c3be3afd7f76
     img{
         width: 100%;
     }

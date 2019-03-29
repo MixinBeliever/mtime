@@ -17,6 +17,7 @@ export default {
             this.datalist = res.data.content
             
         })
+        docment.querySelectAll('img').style.width = '100%'
     }
 }
 </script>
@@ -27,10 +28,12 @@ export default {
      width: 100%;
      div{
          width: 100%;
-         img{
-             max-width: 100% !important;
-         }
+        
      }
  }
+  img{
+             max-width: 100% ;
+             display: block;
+    }
    
 </style>

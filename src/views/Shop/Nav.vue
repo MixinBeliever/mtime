@@ -32,9 +32,9 @@ export default {
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
-            padding: 10px;
+            padding: 15px;
             img{
-                width: 50px;
+                width: 100%;
             }
             span{
                 margin-top: 5px;

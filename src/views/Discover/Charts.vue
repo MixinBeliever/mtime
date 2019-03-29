@@ -1,6 +1,6 @@
 <template>
 	<div class="charts">
-		这是排行榜	
+	
         <div class="chartspic">
 	      	<ul>
 	      		<li>
@@ -20,8 +20,8 @@
 	      	</ul>	
         </div>
         <ul class="topnews">
-        	<li class="link" v-for="data in datalist">
-        		<a href="">
+        	<li class="link" v-for="data,index in datalist" >
+        		<a href="" @click.prevent="handleClick(data.id)">
         			<div class="toptxt">
         				<h2>
         					<b>{{data.topListNameCn}}</b>
@@ -45,6 +45,13 @@
           data(){
           	return{
           		datalist:[]
+          	}
+          },
+          methods:{
+          	handleClick(id) {
+          		console.log(id);
+          		// 编程跳转页面
+          		this.$router.push(`/chartsxq/${id}`);
           	}
           },
           mounted(){
@@ -92,8 +99,15 @@ div.charts{
 		ul{overflow: hidden;
 			li{ 
 				float: left;
-				padding:20px 10px 20px 20px;
+				width: 33.3%;
+				padding:20px 0px 20px 0px;
+
 				a{
+					height: 100%;
+					display: flex;
+					justify-content:center;
+					align-items: center;
+					flex-direction: column; 
 					text-decoration:none;
 					img{
 						width:70px;
@@ -101,6 +115,8 @@ div.charts{
 						border-radius: 50%;
 						overflow: hidden; 
 						margin-bottom: 20px;
+						text-align: center;
+						display: inline-block;
 					}
 					span{
 						font-size: 19px;
@@ -121,12 +137,13 @@ div.charts{
 		}
 	}
 	ul.topnews{
+
 		width: 100%;
 		border-top: 1px solid #d8d8d8;
         margin-top: 21px;
         box-sizing: border-box;
 		li.link{
-			width: 100%;
+			width: 95%;
 			padding: 0 0 0 15px;
 			a{
 				width: 100%;
@@ -136,9 +153,7 @@ div.charts{
 			    padding: 17px 0;
 			    position: relative;
 			    border-bottom: 1px solid #d8d8d8;
-			    overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+
 
 				div.toptxt{
 					h2{
@@ -152,7 +167,10 @@ div.charts{
 					p{
 						margin-top: 6.5px;
 					    padding: 0 30px 0 0;
-					    height: 16px;
+					    height: 20px;
+					    overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
 						span{
 							  font-size: 16px;
   							  color: #777;

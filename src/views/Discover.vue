@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-  	这是发现
      <ul>
 	   <router-link to="/discover/news" tag="li" activeClass="active">新闻</router-link>
 
@@ -11,8 +10,6 @@
 	   <router-link to="/discover/movie" tag="li" activeClass="active">影评</router-link>     	
      </ul>
      <router-view></router-view>
-
-
 
   </div>
 </template>
@@ -40,5 +37,10 @@ div.home{
 	 color: #123685;
 	   }
     }
+}
+.active{
+	background: skyblue;
+	font-size:20px;
+	border-bottom: 3px solid hotpink;
 }
 </style>

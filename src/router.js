@@ -12,6 +12,7 @@ import Hit from "./views/Buy/Hit"
 import Coming from "./views/Buy/Coming"
 import Hotcontent from "./views/Index/hot/Hotcontent.vue"
 import Searchs from "./views/Index/search/Search.vue"
+import Details from "./views/Details/Details"
 
 
 Vue.use(Router)
@@ -20,7 +21,11 @@ export default new Router({
   //mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-
+      {
+        path: '/details/:detailsId',
+        name: 'details',
+        component: Details
+      },
     {
       path: '/',
       name: 'index',

@@ -43,7 +43,7 @@
     <div class="content">
       <p class="month">4月</p>
       <ul>
-        <router-link tag="li" to="" v-for="items in datalistMv" :key="items.id" v-if="items.image">
+        <router-link tag="li" to="/details" v-for="items in datalistMv" :key="items.id" v-if="items.image">
           <p class="day">{{items.rDay}}日</p>
           <img :src="items.image" alt="" >
           <div class="titleM">
@@ -118,6 +118,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home {
+
     background: #fff;
   h1 {
     font-size: 24px;
@@ -204,6 +205,7 @@ export default {
       line-height: 50px;
       border-bottom: 1px solid #8e8e8e;
       margin-left: 20px;
+      font-size: 20px;
     }
       ul{
         li{

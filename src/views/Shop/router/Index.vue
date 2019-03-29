@@ -1,12 +1,12 @@
 <template>
     <div class="shop">
-        <div class="search">
+        <div class="search" >
         <div>
             <a class="search_input" href="#/shop/search"><span>搜索电影正版周边</span></a>
             <a class="shop_car" href="javascript:;"></a>
         </div>
         </div>
-        <banner :bannerlist="bannerlist"></banner>
+        <banner :bannerlist="bannerlist" ref="myscrolltop"></banner>
         <navbar :navarr="navarr"></navbar>
         <mallshop></mallshop>
         <mallact :topic="topic"></mallact>
@@ -49,7 +49,6 @@ export default {
       interesting: interesting,
     },
     mounted(){
-       
         axios({
             url: '/Service/callback.mi/PageSubArea/MarketFirstPageNew.api?t=2019328891340381',
         }).then(res=>{
@@ -80,6 +79,19 @@ export default {
       axios.get('Service/callback.mi/ECommerce/RecommendProducts.api?t=201932816502812474&goodsIds=&pageIndex=1').then(res=>{
         this.interesting = res.data.goodsList;
       })
+
+      window.onscroll = ()=>{
+          if((document.documentElement.scrollTop || document.body.scrollTop) > this.$refs.myscrolltop.$el.offsetHeight){
+             
+              this.$store.state.isHeaderFixed = true;
+          }else{
+              this.$store.state.isHeaderFixed = false;
+          }
+
+      }
+    },
+    destroyed(){
+        window.onscroll = null;
     }
 }
 </script>
@@ -127,6 +139,10 @@ div.shop{
         background-size: 35px 30px; 
       }
     }
+  }
+  .fixed{
+      position: fixed;
+      top: 0;
   }
   div.interesting{
     padding: 10px;

@@ -16,18 +16,18 @@ import 'swiper/dist/css/swiper.css'
 export default {
     data(){
         return{
+            bannerlist: []
         }
     },
-    props: {
-        bannerlist: Array
-    },
+    // props: {
+    //     bannerlist: Array
+    // },
     mounted(){
 
         axios({
             url: '/Service/callback.mi/PageSubArea/MarketFirstPageNew.api?t=2019328891340381',
 
         }).then(res=>{
-            console.log(res.data);
             this.bannerlist = res.data.scrollImg;
             this.$nextTick(()=>{
                 var swiper = new Swiper('.swiper-container', {
@@ -42,10 +42,10 @@ export default {
                         clickable: true,
 
                     },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
+                    // navigation: {
+                    //     nextEl: '.swiper-button-next',
+                    //     prevEl: '.swiper-button-prev',
+                    // },
 
                     });
 

@@ -1,6 +1,6 @@
 <template>
 	<div class="charts">
-		这是影评	
+
         <div class="chartspic">
 	      	<ul>
 	      		<li>
@@ -27,7 +27,7 @@
         					<i><img :src="data.userImage" alt=""></i>
         					<span>{{data.nickname}}-评分</span>
 	    					<span class="ming" href="">《{{data.relatedObj.title}}》</span>
-	    					<span class="pf">{{data.relatedObj.rating}}</span>
+	    					<span class="pf" v-if="data.relatedObj.rating">{{data.relatedObj.rating}}</span>
         				</p>
         			</div>
         			<i></i>
@@ -112,24 +112,25 @@ div.charts{
         margin-top: 21px;
         box-sizing: border-box;
 		li.link{
-			width: 100%;
+			width: 95%;
 			padding: 0 0 0 15px;
 			a{
-				width: 100%;
+				
 				text-decoration:none;
 				display: block;
 			    text-align: left;
 			    padding: 17px 0;
 			    position: relative;
 			    border-bottom: 1px solid #d8d8d8;
-			    overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+
 
 				div.toptxt{
 					h2{
 						margin-right: 30px;
                         line-height: 1.4;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
 						b{
 							font-size: 20px;
 							color: #000;
@@ -140,6 +141,7 @@ div.charts{
 						margin-top: 6.5px;
 					    padding: 0 30px 0 0;
 					    height: 16px;
+
 					    i{
 					    	float: left;
 					    	display: block;
@@ -160,8 +162,8 @@ div.charts{
 
 						}
 						span.ming{
-							width: 150px;
-							height: 10px;
+							/*width: 150px;*/
+							/*height: 10px;*/
 							float: left;
 
 						}

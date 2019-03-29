@@ -1,6 +1,6 @@
 <template>
 	<div class="news">
-		这是预告	
+
       <div class="newspic">
       	<ul>
       		<li>
@@ -98,6 +98,7 @@ div.news{
 				    padding: 24px 0 24px;
 				    text-align: center;
 				    i{
+				    
 				    	position: absolute;
 				    	width: 40px;
 				    	height: 40px;
@@ -122,25 +123,31 @@ div.news{
 	}	
 
     div.right{
-		padding: 0 15px;
+    	box-sizing: border-box;
+    	width: 58%;
 		dl{
+		 	margin-left: 4%;
 			margin-top: -4px;
 			position: relative;
 			height: 120px;
 			width: 100%;
+			overflow: hidden;
 			dt{
+			 		
 				font-size: 20px;
 			    line-height: 1.3;
 			    font-weight: bold;
 			}
 			dd{
+				
 			    color: #777;
-  				padding: 10px 4px;
+  				
 			    p{
 			    	 font-size: 26px;
 			    }
 			}
 			dd.bri{
+				
 			    margin-left:10px;
 			    overflow: hidden;
                 text-overflow: ellipsis;
@@ -165,8 +172,7 @@ div.news{
 
 
 	div.newslist{
-	    box-sizing: border-box;
-	   
+	    box-sizing: border-box; 
 		ul._newsList{
 			padding: 0 0 0 20px;
 			li.table{
@@ -175,6 +181,7 @@ div.news{
 			    cursor: pointer;
 			    position: relative;
 				div.box{
+					box-sizing: border-box;
 					display: flex;
 				    div.newstext1{
 				    	/*width: 100%;*/
@@ -189,6 +196,7 @@ div.news{
 				    	 		
 				    	 	}
 				    	 	i{
+				    	 		box-sizing: border-box;
 						    	position: absolute;
 						    	width: 40px;
 						    	height: 40px;

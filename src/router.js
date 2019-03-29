@@ -5,6 +5,7 @@ import Buy from './views/Buy.vue'
 import Shop from './views/Shop.vue'
 import Discover from './views/Discover.vue'
 import Charts from './views/Discover/Charts'
+import Chartsxq from './views/Discover/Chartsxq'
 import Movie from './views/Discover/Movie'
 import News from './views/Discover/News'
 import Preview from './views/Discover/Preview'
@@ -134,6 +135,10 @@ export default new Router({
           redirect:'/discover/news'
         },
       ]
+    },
+    {
+      path:'/chartsxq/:myid',
+      component: Chartsxq
     },
     {
       path: '/my',

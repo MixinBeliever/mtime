@@ -39,7 +39,8 @@ export default new Router({
     {
       path: '/index',
       name: 'home',
-      component: Index
+      component: Index,
+      alias: '/home'
     },
     {
       path: '/hotcontent/:hotcontentid',

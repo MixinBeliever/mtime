@@ -1,5 +1,5 @@
 <template>
-        <header>
+        <header :class="$store.state.isHeaderFixed?'fixed':''">
             <ul>
                 <router-link to="/index" tag="li" activeClass="active"><a href="javascript:;">logo</a></router-link>
                 <router-link to="/index" tag="li" activeClass="active"><a href="javascript:;">首页</a></router-link>
@@ -44,5 +44,11 @@ header{
           
       }
     }
+  }
+  header.fixed{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
   }
 </style>

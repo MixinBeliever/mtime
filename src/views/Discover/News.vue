@@ -126,7 +126,7 @@ div.news{
 			    position: relative;
 			   
 			    p{
-			    	font-size: 16px;
+			    	font-size: 20px;
 				    line-height: 1.3;
 				    font-weight: bold;
 				    margin-bottom: 10px
@@ -179,7 +179,7 @@ div.news{
 			    }
 			    time{
 			    	padding-top: 10px;
-			    	color: red;
+			    	color: #777777;
 			    	font-size:14px;
 			    }
 			  	

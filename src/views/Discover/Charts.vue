@@ -14,9 +14,9 @@
 
         <div class="tu">
 	      	<ul>
-	      		<li><a href=""><img src="" alt=""><span>时光Top100</span></a></li>
-	      		<li><a href=""><img src="" alt=""><span>华宇Top100</span></a></li>
-	      		<li><a href=""><img src="" alt=""><span>全球票房榜</span></a></li>
+	      		<li><a href=""><img src="../../../public/imgs/1.png" alt=""><span class="blue">时光Top100</span></a></li>
+	      		<li><a href=""><img src="../../../public/imgs/2.png" alt=""><span class="green">华宇Top100</span></a></li>
+	      		<li><a href=""><img src="../../../public/imgs/3.png" alt=""><span class="yellow">全球票房榜</span></a></li>
 	      	</ul>	
         </div>
         <ul class="topnews">
@@ -30,7 +30,7 @@
         					<span>{{data.summary}}</span>
         				</p>
         			</div>
-        			<i></i>
+        			<i><img src="../../../public/imgs/timgHTGLBTGC.jpg" alt=""></i>
         		</a>
         	</li>
         </ul>
@@ -93,13 +93,26 @@ div.charts{
 			li{ 
 				float: left;
 				padding:20px 10px 20px 20px;
-				background: red;
-
 				a{
 					text-decoration:none;
-					img{}
+					img{
+						width:70px;
+						height:70px;
+						border-radius: 50%;
+						overflow: hidden; 
+						margin-bottom: 20px;
+					}
 					span{
 						font-size: 19px;
+					}
+					span.blue{
+						color: #1498c9;
+					}
+					span.green{
+						color: #3bc7c2;
+					}
+					span.yellow{
+						color:#ffc12d;
 					}
 
 				}
@@ -133,6 +146,7 @@ div.charts{
                         line-height: 1.4;
 						b{
 							font-size: 20px;
+							color: #000;
 						}
 					}
 					p{
@@ -147,12 +161,24 @@ div.charts{
 					}
 				}
 				i{
-					
+					display: block;
+					width: 15px;
+					height: 15px;
+					position: absolute;
+					top: 38px;
+					right: 25px;
+				
+					img{
+                         background: #777;
+					}
+
+
 				}
 			}
 		}
 	}
 
-}		
+}	
+
 </style>
 

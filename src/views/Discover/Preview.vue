@@ -142,16 +142,22 @@ div.news{
 			}
 			dd.bri{
 			    margin-left:10px;
+			    overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
 			    time{
                     margin-right: 10px;
+                    padding-top: 10px;
+			    	color: #777777;
+			    	font-size:18px;
 			    }
 			}
 			    	
-			    time{
+			   /* time{
 			    	padding-top: 10px;
-			    	color: red;
-			    	font-size:14px;
-			    }
+			    	color: #777777;
+			    	font-size:18px;
+			    }*/
 			  	
 			
 		}
@@ -186,7 +192,6 @@ div.news{
 						    	position: absolute;
 						    	width: 40px;
 						    	height: 40px;
-						    	background: red;
 						    	top: 78px;
 						    	left: 78px;
 						    	border-radius: 50%;

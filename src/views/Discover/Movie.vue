@@ -1,6 +1,6 @@
 <template>
 	<div class="charts">
-		这是排行榜	
+		这是影评	
         <div class="chartspic">
 	      	<ul>
 	      		<li>
@@ -132,6 +132,7 @@ div.charts{
                         line-height: 1.4;
 						b{
 							font-size: 20px;
+							color: #000;
 						}
 					}
 					p{
@@ -167,7 +168,7 @@ div.charts{
 						span.pf{
 							width: 25px;
 							height: 20px;
-							background: green;
+							background: #659d0e;
 							color: #fff;
 						}
 					}

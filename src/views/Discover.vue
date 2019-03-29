@@ -37,6 +37,7 @@ div.home{
 	 flex:1;
 	 line-height: 40px;
 	 text-align: center;
+	 color: #123685;
 	   }
     }
 }

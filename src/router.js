@@ -9,19 +9,22 @@ import Movie from './views/Discover/Movie'
 import News from './views/Discover/News'
 import Preview from './views/Discover/Preview'
 import My from './views/My.vue'
+import Search from './views/Shop/router/Search.vue'
+import shopIndex from './views/Shop/router/Index.vue'
+
+import Hit from "./views/Buy/Hit"
+import Coming from "./views/Buy/Coming"
+import Hotcontent from "./views/Index/hot/Hotcontent.vue"
+import Search from "./views/Index/search/Search.vue"
 
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  //mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '*',
-      name: 'index',
-      component: Index
-    },
+
     {
       path: '/',
       name: 'index',
@@ -33,14 +36,58 @@ export default new Router({
       component: Index
     },
     {
+      path: '/hotcontent/:hotcontentid',
+      component: Hotcontent,
+     },
+     {
+      path: '/search',
+      component: Search,
+     },
+    {
       path: '/buy',
       name: 'buy',
-      component: Buy
+      component: Buy,
+      children:[
+        {
+          path: "hit",
+          component : Hit
+        },
+        {
+          path: "coming",
+          component : Coming
+        },
+        {
+          path :'/',
+          redirect : '/buy/hit'
+        },
+        {
+          path :'*',
+          redirect : '/buy/hit'
+        }
+      ]
     },
     {
       path: '/shop',
       name: 'shop',
-      component: Shop
+      component: Shop,
+      children: [
+        {
+          path: 'search',
+          component: Search
+        },
+        // {
+        //   path: '*',
+        //   redirect: '/shop/index'
+        // },
+        {
+          path: '/',
+          redirect: '/shop/index'
+        },
+        {
+          path: 'index',
+          component: shopIndex
+        }
+      ]
     },
     {
       path: '/discover',

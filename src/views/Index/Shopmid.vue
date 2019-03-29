@@ -1,7 +1,6 @@
 <template>
     <div class="box">
-        <img :src="image" alt="" @click="handleclick">
-        
+        <img :src="image" alt="" @click="handleclick">     
     </div>
 </template>
 <script>

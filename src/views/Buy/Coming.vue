@@ -7,7 +7,7 @@
        
     <div class="swiper-container" id="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="item in datalist" :key="item.id">
+        <div class="swiper-slide" v-for="(item,index) in datalist" :key="item.id">
            <p class="swiperP">
             <span>{{item.rMonth}}月{{item.rDay}}日</span>
            </p>
@@ -23,8 +23,8 @@
               </p>
               <p>导演：{{item.director}}</p>
               <p>演员：{{item.actor1}},{{item.actor2}}</p>
-              <button>超前预售</button>
-              <button>预告片</button>
+              <button v-if="item.isTicket" class="tick" @click="methodTick(item.id)">超前预售</button>
+              <button v-if="item.isVideo" class="video">预告片</button>
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@
     </div>
   <!-- 广告轮播 -->
     <!-- <div v-url=""></div> -->
-    <object data="https://static4da.mtime.cn/feature/mobile/banner/2019/0311/hvtnd750175.html" class="obj"></object>
+    <!-- <object data="https://static4da.mtime.cn/feature/mobile/banner/2019/0311/hvtnd750175.html" class="obj"></object> -->
 
     <!-- 即将上映 -->
     <h1>
@@ -73,7 +73,7 @@
       </div>
      
     </div>
-
+    <router-view></router-view>
   </div>
 </template>
 <script>
@@ -81,23 +81,23 @@ import vue from "vue"
 import Swiper from "swiper";
 import axios from "axios";
 import "swiper/dist/css/swiper.min.css";
-import { loadavg } from 'os';
+
 
 export default {
   data() {
     return {
       datalist: [],
       datalistMv:[],
-      datalistMvH:[],
-      
+      datalistMvH:[]
     };
   },
   mounted() {
+      
     axios({
       url:
         "/Service/callback.mi/Movie/MovieComingNew.api?locationId=290&t=20193281635090995"
     }).then(res => {
-        console.log(res.data.moviecomings)
+        //console.log(res.data.moviecomings)
       this.datalistMvH = res.data.moviecomings
       this.datalistMvH = res.data.moviecomings.splice(-5,5)
       //console.log(this.datalistMvH)
@@ -113,7 +113,14 @@ export default {
       });
     });
 
+
   },
+  methods:{
+      methodTick(data){
+        this.$router.push(`/buy/coming/${data}`)
+        // console.log()
+      }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -142,13 +149,14 @@ export default {
     }
  
   .swiperTitle {
+    height: 160px;
     border-top: 1px solid #bcbdbd;
     border-right: 1px solid #bcbdbd;
     position: relative;
-    padding: 20px 10px 20px 0;
+    padding-top: 20px;
     margin-left: 20px;
-    height: 160px;
     .swiperBg {
+      background: red;
       img {
         width: 33%;
         float: left;
@@ -156,41 +164,45 @@ export default {
       }
     }
     .swiperMs{
+      width: 330px;
       p:nth-of-type(1){
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
         line-height: 10px;
         margin-bottom: 20px;
       }
       p:nth-of-type(2){
-        font-size: 16px;
+        font-size: 12px;
         margin-bottom: 5px;
         span{
           color: #f89d52;
         }
       }
        p:nth-of-type(3){
-        font-size: 16px;
+        font-size: 12px;
         margin-bottom: 5px;
       }
       p:nth-of-type(4){
-        font-size: 16px;
+        font-size: 12px;
         margin-bottom: 30px;
       }
       button{
-          width: 100px;
+          width: 80px;
           background: #f89d52;
-          height: 40px;
+          height: 30px;
           border-radius: 35px;
           border: none;
-          font-size: 16px;
+          font-size: 12px;
           color: #fff;
+          outline: none;
       }
       button:nth-of-type(1){
         margin-right: 20px;
       }
        button:nth-of-type(2){
-         background: #63ec5e;
+         background: #fff;
+         border: 1px solid  rgb(106, 238, 117);
+         color: rgb(106, 238, 117);
       }
     }
   }
@@ -224,30 +236,30 @@ export default {
             }
             .titleM{
               p:nth-of-type(1){
-                font-size: 20px;
+                font-size: 16px;
                 font-weight: bold;
               }
                p:nth-of-type(2){
-                font-size: 16px;
+                font-size: 12px;
                 margin: 5px 0;
                 span{
                   color: #f89d52;
                 }
               }
               p:nth-of-type(3){
-                font-size: 16px;
+                font-size: 12px;
               }
               p:nth-of-type(4){
-                font-size: 16px;
+                font-size: 12px;
               }
               button{
-                width: 90px;
-                height: 40px;
-                margin-top: 10px;
+                width: 70px;
+                height: 30px;
+                margin-top: 20px;
                 margin-right: 10px;
                 border-radius: 35px;
                 border: none;
-                font-size: 16px;
+                font-size: 12px;
               }
               button.tick{
                 background: #f89d52;

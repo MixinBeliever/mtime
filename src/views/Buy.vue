@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <div class="navTop">
+    <div class="navTop" v-show="this.$store.state.isshowVideo">
       <ul>
         <router-link tag="li" to="/buy/hit" activeClass="bgblue">正在热映</router-link>
         <router-link tag="li" to="/buy/coming" activeClass="bgblue">即将上映</router-link>
       </ul>
     </div>
-    <div class="divText">
-      <input type="text" placeholder="影片/影院/影人, 任你搜">
+    <div class="divText" v-show="this.$store.state.isshowVideo">
+      <input type="text" placeholder="影片/影院/影人, 任你搜" >
     </div>
     <router-view></router-view>
   </div>
@@ -21,13 +21,18 @@ export default {
   // components:{
   //   hit:hit
   // }
+  data(){
+    return {
+      // isshowVideo : true
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
   .navTop{
     width: 100%;
     background:#1c2635 ;
-    height: 50px;
+    height: 50%;
     overflow: hidden;
     border-bottom: 1px solid rgb(182, 181, 181);
     ul{
@@ -38,6 +43,7 @@ export default {
       margin: 10px auto;
       border-radius: 35px;
       border: 1px solid #000;
+      display: flex;
       li{
         float: left;
         text-align: center;

@@ -1,16 +1,18 @@
 <template>
-    <div class="box">
-        <h2>今日热点</h2>
-        <ul>
-            <router-link to="" tag="li" v-for="data in datalist" :key="data.id"> 
-                <img :src="data.img" alt="">
-                <ul>
-                    <li>{{data.title}}</li>
-                    <li>{{data.desc}}</li>
-                    <li>{{data.publishTime | datemtime}}</li>
-                </ul>
-            </router-link>
-        </ul>
+    <div>
+        <div class="box">
+            <h2>今日热点</h2>
+            <ul>
+                <li v-for="data in datalist" :key="data.id" @click="handleclick(data.id)"> 
+                    <img :src="data.img" alt="">
+                    <ul>
+                        <li>{{data.title}}</li>
+                        <li>{{data.desc}}</li>
+                        <li>{{data.publishTime | datemtime}}</li>
+                    </ul>
+                </li>
+            </ul> 
+        </div>
     </div>
 </template>
 <script>
@@ -35,6 +37,13 @@ export default {
             this.datalist = res.data.hotPoints
             // console.log(this.datalist = res.data.hotPoints)
         })
+    },
+    methods : {
+        handleclick (id) {   
+            this.$router.push(`/hotcontent/${id}`)
+            
+            
+        }
     }
 }
 </script>

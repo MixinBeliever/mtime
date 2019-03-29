@@ -2,10 +2,10 @@
   <div class="home">
     <header>
       <h1>北京</h1>
-     <router-link to="" tag="div" class="search">影片/影院/影人 ，任你搜</router-link>
+     <router-link to="/search" tag="div" class="search">影片/影院/影人 ，任你搜</router-link>
     </header>
     <Nowplaying></Nowplaying>
-    <router-link to="" tag="div" class="comingsoon">即将上映 <span>></span> </router-link>
+    <router-link to="/buy/coming" tag="div" class="comingsoon">即将上映 <span>></span> </router-link>
     <shopmid></shopmid>
     <Hotnew></Hotnew>
   </div>

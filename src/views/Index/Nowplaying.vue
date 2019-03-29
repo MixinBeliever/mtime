@@ -2,7 +2,7 @@
    <div class="box">
        <h1>正在热映</h1>
         <ul>
-            <router-link to="" tag="li" v-for="data,index in datalist" :key="data.id" v-if="index<8">
+            <router-link to="" tag="li" v-for="(data,index) in datalist" :key="data.id" v-if="index<8">
                 <img :src="data.img">
                 <p>{{data.t}}</p>
                 <span v-if="data.r > 0">

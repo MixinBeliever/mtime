@@ -4,12 +4,19 @@ import Index from './views/Index.vue'
 import Buy from './views/Buy.vue'
 import Shop from './views/Shop.vue'
 import Discover from './views/Discover.vue'
+import Charts from './views/Discover/Charts'
+import Movie from './views/Discover/Movie'
+import News from './views/Discover/News'
+import Preview from './views/Discover/Preview'
 import My from './views/My.vue'
 import Search from './views/Shop/router/Search.vue'
 import shopIndex from './views/Shop/router/Index.vue'
 
 import Hit from "./views/Buy/Hit"
 import Coming from "./views/Buy/Coming"
+import Hotcontent from "./views/Index/hot/Hotcontent.vue"
+import Searchs from "./views/Index/search/Search.vue"
+import Details from "./views/Details/Details"
 
 
 Vue.use(Router)
@@ -18,11 +25,11 @@ export default new Router({
   //mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '*',
-      name: 'index',
-      component: Index
-    },
+      {
+        path: '/details/:detailsId',
+        name: 'details',
+        component: Details
+      },
     {
       path: '/',
       name: 'index',
@@ -34,6 +41,14 @@ export default new Router({
       component: Index,
       alias: '/home'
     },
+    {
+      path: '/hotcontent/:hotcontentid',
+      component: Hotcontent,
+     },
+     {
+      path: '/search',
+      component: Searchs,
+     },
     {
       path: '/buy',
       name: 'buy',
@@ -83,7 +98,30 @@ export default new Router({
     {
       path: '/discover',
       name: 'discover',
-      component: Discover
+      component: Discover,
+      
+      children:[
+
+        {
+          path:'charts',
+          component: Charts
+        },
+        {
+          path:'movie',
+          component: Movie
+        },
+        {
+          path:'news',
+          component: News
+        },
+        {
+          path:'preview',
+          component: Preview
+        },{
+          path:'',
+          redirect:'/discover/news'
+        },
+      ]
     },
     {
       path: '/my',

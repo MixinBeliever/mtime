@@ -34,12 +34,18 @@
                 {{content}}
                 <span> ↓ </span>
             </p>
+            <DetailsText></DetailsText>
         </main>
     </div>
 </template>
 <script>
+import Vue from 'vue'
 import axios from 'axios'
+<<<<<<< HEAD
+import DetailsText from "./DetailsText"
+=======
 import { Indicator } from 'mint-ui';
+>>>>>>> a02ef793efffe24560c718c9334b52295b1b7646
 export default {
     data () {
         return {
@@ -57,7 +63,7 @@ export default {
         axios ({
             url : `/Service/callback.mi/movie/Detail.api?movieId=${this.$route.params.detailsId}&locationId=290&t=20193291347472788`
         }).then( (res) => {
-            console.log(res.data)
+            // console.log(res.data)
             this.mainvideo = res.data.image
             this.titleCn = res.data.titleCn
             this.runTime = res.data.runTime
@@ -71,6 +77,9 @@ export default {
     },
     destroyed () {
         this.$store.state.isHeaderShow = true;
+    },
+    components:{
+        DetailsText:DetailsText
     }
 }
 </script>
@@ -98,9 +107,9 @@ export default {
 main{
     position: relative;
     width: 100%;
-    height: 800px;
+    height: 100%;
     section{
-        height:23%;
+        height:142px;
         background: #fff;
         img{
             width: 40%;
@@ -160,9 +169,12 @@ main{
         display: block;
         color: #fff;
         outline: none;
+<<<<<<< HEAD
 
         border: none;
 
+=======
+>>>>>>> d79831f6f4360b9dc5e2406e0b29c744b71abc2b
         margin-top:10px;
     }
     .text{
@@ -178,7 +190,10 @@ main{
         overflow: hidden;
         text-overflow: ellipsis;
         padding-bottom: 18px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d79831f6f4360b9dc5e2406e0b29c744b71abc2b
     }
 }
 

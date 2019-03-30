@@ -30,7 +30,10 @@
             </section>
             <p class="word">{{commonSpecial}}</p>
             <button>查影讯/购票</button>
-            <p class="text">{{content}}</p>
+            <p class="text">
+                {{content}}
+                <span> ↓ </span>
+            </p>
         </main>
     </div>
 </template>
@@ -95,6 +98,7 @@ main{
     height: 800px;
     section{
         height:23%;
+        background: #fff;
         img{
             width: 40%;
             border: 2px solid #fff;
@@ -141,6 +145,7 @@ main{
         font-size: 20px;
         color: #FD8900;
         font-weight: 800;
+        margin-top:8px;
     }
     button{
         width: 80%;
@@ -152,7 +157,25 @@ main{
         display: block;
         color: #fff;
         outline: none;
+<<<<<<< HEAD
         border: none;
+=======
+        margin-top:10px;
+    }
+    .text{
+        width: 100%;
+        height:85px;
+        background: #fff;
+        margin-top: 20px;
+        box-shadow: 2px 2px 2px #aaa,
+        3px 3px 3px #ccc;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        line-height: 22px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-bottom: 18px;
+>>>>>>> a271d125e804cbb3b6783ea8291b8bd56368f080
     }
 }
 

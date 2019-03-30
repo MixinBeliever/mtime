@@ -41,11 +41,8 @@
 <script>
 import Vue from 'vue'
 import axios from 'axios'
-<<<<<<< HEAD
 import DetailsText from "./DetailsText"
-=======
 import { Indicator } from 'mint-ui';
->>>>>>> a02ef793efffe24560c718c9334b52295b1b7646
 export default {
     data () {
         return {
@@ -169,12 +166,7 @@ main{
         display: block;
         color: #fff;
         outline: none;
-<<<<<<< HEAD
-
         border: none;
-
-=======
->>>>>>> d79831f6f4360b9dc5e2406e0b29c744b71abc2b
         margin-top:10px;
     }
     .text{
@@ -190,10 +182,6 @@ main{
         overflow: hidden;
         text-overflow: ellipsis;
         padding-bottom: 18px;
-<<<<<<< HEAD
-
-=======
->>>>>>> d79831f6f4360b9dc5e2406e0b29c744b71abc2b
     }
 }
 

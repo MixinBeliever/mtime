@@ -3,7 +3,7 @@
 
       <div class="newspic">
       	<ul>
-      		<li>
+      		<li @click.prevent="hande(leileilist.id)">
       		  <img :src="leileilist.hightUrl" >
       		  {{leileilist.title}}
       		  <h2>
@@ -79,14 +79,12 @@
       		this.leileilist = res.data.trailer
       	})      	
       },
-      // methods : {
-      // 	openpp (url) {
-      // 		//location.href= url
-      // 		//window.open(url)
-      // 		this.$router.push(url)
-      // 		console.log(url)
-      // 	}
-      // }
+      methods : {
+         hande(id){
+         	console.log(id)
+             this.$router.push(`/previewxq/${id}`);
+         }
+      }
         
 	}
 </script>

@@ -4,11 +4,11 @@
         <div class="chartspic">
 	      	<ul>
 	      		<li>
-	      		  <img src="http://img5.mtime.cn/mt/2019/03/04/095504.68978862_1280X720X2.jpg" >
+	      		  <img :src="leileilist.imageUrl" >{{leileilist.title}}
 	      		  <h2>
-	      		  	<i><img src="http://img5.mtime.cn/mt/2019/03/04/095504.68978862_1280X720X2.jpg" alt=""></i>
-	      		  	<span>都挺好</span>
-	      		  	<p>“结合原著看苏母，才发觉她是那..</p>
+	      		  	<i><img :src="leileilist.posterUrl" alt=""></i>
+	      		  	<span>{{leileilist.movieName}}</span>
+	      		  	<p>“{{leileilist.title}}</p>
 	      		  </h2>	
 
 	      		</li>
@@ -44,14 +44,19 @@
 	export default{
           data(){
           	return{
-          		datalist:[]
+          		datalist:[],
+          		leileilist:[]
           	}
           },
           mounted(){
           	axios.get('/Service/callback.mi/MobileMovie/Review.api?needTop=false&t=20193281983175621').then(res=>{
           		console.log(res.data)
           		this.datalist = res.data
-          	})
+          	}),
+	      	axios.get('/Service/callback.mi/PageSubArea/GetRecommendationIndexInfo.api?t=20193309523168353').then(res=>{
+	      		console.log(res.data)
+	      		this.leileilist = res.data.review
+	      	})           	
           }
 	}
 </script>

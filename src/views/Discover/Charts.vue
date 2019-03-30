@@ -3,10 +3,10 @@
 	
         <div class="chartspic">
 	      	<ul>
-	      		<li>
-	      		  <img src="http://img5.mtime.cn/mg/2017/03/01/173620.86296561.jpg" >
+	      		<li @click.prevent="handleClick(leileilist.id)">
+	      		  <img :src="leileilist.imageUrl" >
 	      		  <h2>
-	      		  	<b> 那些荣获奥斯卡的LGBT电影</b>
+	      		  	<b> {{leileilist.title}}</b>
 	      		  </h2>	
 	      		</li>
 	      	</ul>
@@ -44,7 +44,8 @@
 	export default{
           data(){
           	return{
-          		datalist:[]
+          		datalist:[],
+          		leileilist:[],
           	}
           },
           methods:{
@@ -58,7 +59,11 @@
           	axios.get('/Service/callback.mi/TopList/TopListOfAll.api?t=20193281713844947&pageIndex=1').then(res=>{
           		console.log(res.data)
           		this.datalist = res.data.topLists
-          	})
+          	}),
+	      	axios.get('/Service/callback.mi/PageSubArea/GetRecommendationIndexInfo.api?t=20193309523168353').then(res=>{
+	      		console.log(res.data)
+	      		this.leileilist = res.data.topList
+	      	})            	
           }
 	}
 </script>

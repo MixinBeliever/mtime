@@ -4,9 +4,10 @@
       <div class="newspic">
       	<ul>
       		<li>
-      		  <img src="http://img5.mtime.cn/mg/2019/03/21/142620.19535364_120X90X4.jpg" >
+      		  <img :src="leileilist.hightUrl" >
+      		  {{leileilist.title}}
       		  <h2>
-      		  	<b> 基努·李维斯《疾速追杀3》预告片</b>
+      		  	<b> {{leileilist.title}}</b>
       		  	<i><img src="../../../public/imgs/u=1873585367,1967240943&fm=26&gp=0.jpg" alt=""></i>
       		  </h2>	
       		</li>
@@ -62,7 +63,8 @@
 	export default{
 		data(){
 			return{
-				datalist:[]
+				datalist:[],
+				leileilist:[]
 			}
 		},
       mounted(){
@@ -70,7 +72,11 @@
                console.log(res.data)
 
                this.datalist = res.data.trailers
-      	})
+      	}),
+      	axios.get('/Service/callback.mi/PageSubArea/GetRecommendationIndexInfo.api?t=20193309523168353').then(res=>{
+      		console.log(res.data)
+      		this.leileilist = res.data.trailer
+      	})      	
       }
         
 	}

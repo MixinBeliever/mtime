@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <ul>
-            <router-link tag="li" to="/details" v-for="item in datalist" :key="item.movieId">
+            <li v-for="item in datalist" :key="item.movieId" @click="handle(item.movieId)">
                 <img :src="item.img" />
                 <div class="message">
                     <p>{{item.t}}<span>{{item.r}}</span></p>
@@ -9,7 +9,7 @@
                     <p>{{item.cC}}家影院上映{{item.NearestShowtimeCount}}场</p>
                     <button>购票</button>
                 </div>
-            </router-link>
+            </li>
         </ul>
     </div>
 </template>
@@ -29,6 +29,11 @@ export default {
                 console.log(res.data.ms);
                 this.datalist = res.data.ms              
             })
+        },
+        methods : {
+            handle (id) {
+                this.$router.push(`/details/${id}`)
+            }
         }
 }
 </script>

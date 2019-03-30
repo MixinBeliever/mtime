@@ -1,6 +1,9 @@
 <template>
  <div class="box" v-if="filminfo" >
- 	<div></div>
+ 	    <header>
+            <router-link to="/discover/charts" tag="span"> < </router-link>
+            <router-link to="/search" tag="h2"> 搜电影 </router-link>
+        </header>
    <div class="sy" >
   	  <span v-if="leilei.name">{{leilei.name}}</span>
   	  <p v-if="leilei.summary">{{leilei.summary}}</p>   	
@@ -76,6 +79,27 @@
 
 <style lang="scss" scoped>
  div.box{
+    header{
+        height:60px;
+        width: 100%;
+        background:#1C2635;
+        overflow: hidden;
+        span{
+            float: left;
+            color: #fff;
+            font-size: 30px;
+            margin-top:3px;
+            margin-left: 20px
+        }
+        h2{
+            float: right;
+            color: #fff;
+            font-size: 20px;
+            margin-top:12px;
+            margin-right: 20px
+        }
+    }
+ 	
  	div.sy{
  		box-sizing: border-box;
  		background: #f6f6f6;

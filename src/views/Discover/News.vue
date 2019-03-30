@@ -3,7 +3,7 @@
 	
       <div class="newspic">
       	<ul>
-      		<li>
+      		<li @click="handleheader(leileilist.newsID)">
       		  <img :src="leileilist.imageUrl" >
       		  <h2>
       		  	<b> {{leileilist.title}}</b>
@@ -14,20 +14,20 @@
 
       <div class="newslist">
       	<ul class="_newsList">
-      		<li class="table"  v-for="item,index in datalist" :key="index" v-if="item.images.length !== 0">
+      		<li class="table"  v-for="item,index in datalist" :key="index" v-if="item.images.length !== 0" @click="handleheader1(item.id)">
       			<p>{{item.title}}</p>
       			<div class="newstext" >
-      				<a href="" >
+      				<a>
       					<img  alt="" v-for="list,index in item.images" :key="index" :src="list.url1">
       				
       				</a>
       			</div>
       			<time>60分钟</time>
       		</li>
-      		<li class="table"   v-else>
+      		<li class="table"   v-else  @click="handleheader2(item.id)">
 				<div class="box">
       			<div class="newstext1">
-      				<a href="">
+      				<a>
       					<img :src="item.image">
       				</a>
       			</div>
@@ -76,15 +76,26 @@
 		},
       mounted(){
       	axios.get('/Service/callback.mi/News/NewsList.api?t=201932810404715298&pageIndex=1').then(res=>{
-               // console.log(res.data.newsList)
+               console.log(res.data.newsList)
 
                this.datalist = res.data.newsList
       	}),
       	axios.get('/Service/callback.mi/PageSubArea/GetRecommendationIndexInfo.api?t=20193309523168353').then(res=>{
-      		console.log(res.data.topList)
+      		console.log(res.data.news)
       		this.leileilist = res.data.news
       	})
       },
+      methods :{
+      	handleheader (id) {
+      		this.$router.push(`/hotcontent/${id}`)
+      	},
+      	handleheader1(id){
+      		this.$router.push(`/hotcontent/${id}`)
+      	},
+      	handleheader2(id){
+      		this.$router.push(`/hotcontent/${id}`)
+      	}
+      }
 	}
 </script>
 
@@ -95,11 +106,11 @@ div.news{
 	  	ul{
 		   	li{
 			    position: relative;
-			    height: 275px;
+			    height: 213px;
 			    overflow: hidden;
 		    	img{
 			    	width: 100%;
-			    	height: auto;
+			    	height: 100%;
 		    	}
 		    	h2{
 				    background: rgba(0,0,0,0.5);

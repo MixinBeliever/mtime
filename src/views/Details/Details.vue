@@ -30,10 +30,10 @@
             </section>
             <p class="word">{{commonSpecial}}</p>
             <button>查影讯/购票</button>
-            <p class="text">
-                {{content}}
-                <span> ↓ </span>
+            <p class="text" :class="ishide ?'minh':'maxh'">
+                <b> {{content}}</b>
             </p>
+            <span class="xia" @click="xiala()"> 查看更多 </span>
             <DetailsText></DetailsText>
         </main>
     </div>
@@ -52,7 +52,8 @@ export default {
            type : [],
            release : [],
            commonSpecial : '',
-           content : ''
+           content : '',
+           ishide : true
         }
     },
     mounted () {
@@ -77,6 +78,11 @@ export default {
     },
     components:{
         DetailsText:DetailsText
+    },
+    methods : {
+        xiala () {
+            this.ishide = !this.ishide
+        }
     }
 }
 </script>
@@ -112,13 +118,13 @@ main{
             width: 40%;
             border: 2px solid #fff;
             position: absolute;
-            top: -11%;
+            top: -103px;
             left:10%;
         }
         div{
             width: 42%;
             position: absolute;
-            top: -11%;
+            top: -103px;
             left:53%;
             height:242px;
             h3{
@@ -136,13 +142,13 @@ main{
                 font-size: 18px;
                 margin-top: 10px;
                 i{
-                    padding: 4% 4%;
+                    padding: 3% 1%;
                     font-style: normal;
                     background:#fff;
-                    margin-left:2%;
                     border-radius: 30%;
                     border:1px solid #1C2635;
                     color: #333;
+                    background: skyblue;
                 }
                 }
             }
@@ -166,23 +172,43 @@ main{
         display: block;
         color: #fff;
         outline: none;
+        border: none;
         margin-top:10px;
     }
     .text{
-        width: 100%;
-        height:85px;
+        width: 98%;
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 0 3px;
         background: #fff;
         margin-top: 20px;
-        box-shadow: 2px 2px 2px #aaa,
-        3px 3px 3px #ccc;
+        box-shadow: -2px -2px 2px #aaa,
+        -3px -3px 3px #ccc;
         border: 1px solid #ccc;
         font-size: 16px;
-        line-height: 22px;
-        overflow: hidden;
+        line-height: 25px;
         text-overflow: ellipsis;
         padding-bottom: 18px;
+        overflow: hidden;
+        b{
+            display: block;
+            font-weight: 100;
+           
+        }
     }
 }
-
+.minh{
+    height: 100px !important;
+}
+.maxh{
+    height: 100% !important;
+}
+.xia{
+    display: block;
+    height: 20px;
+    margin: 0 auto;
+    width: 20%;
+    
+}
 </style>
 

@@ -7,8 +7,10 @@ import Discover from './views/Discover.vue'
 import Charts from './views/Discover/Charts'
 import Chartsxq from './views/Discover/Chartsxq'
 import Movie from './views/Discover/Movie'
+import Noviexq from './views/Discover/details/Noviexq'
 import News from './views/Discover/News'
 import Preview from './views/Discover/Preview'
+import Previewxq from './views/Discover/details/Previewxq'
 import My from './views/My.vue'
 import Search from './views/Shop/router/Search.vue'
 import shopIndex from './views/Shop/router/Index.vue'
@@ -139,6 +141,14 @@ export default new Router({
     {
       path:'/chartsxq/:myid',
       component: Chartsxq
+    },
+    {
+      path:'/noviexq/:myid',
+      component: Noviexq
+    },
+    {
+      path:'/previewxq/:myid',
+      component: Previewxq
     },
     {
       path: '/my',

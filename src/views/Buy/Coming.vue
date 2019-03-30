@@ -7,7 +7,7 @@
        
     <div class="swiper-container" id="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(item,index) in datalist" :key="item.id">
+        <div class="swiper-slide" v-for="(item,index) in datalist" :key="item.id" @click="handleh(item.id)">
            <p class="swiperP">
             <span>{{item.rMonth}}月{{item.rDay}}日</span>
            </p>
@@ -43,7 +43,7 @@
     <div class="content">
       <p class="month">4月</p>
       <ul>
-        <router-link tag="li" to="/details" v-for="items in datalistMv" :key="items.id" v-if="items.image">
+        <li v-for="items in datalistMv" :key="items.id" v-if="items.image" @click="handle(items.id)">
           <p class="day">{{items.rDay}}日</p>
           <img :src="items.image" alt="" >
           <div class="titleM">
@@ -53,12 +53,12 @@
             <button v-if="items.isTicket" class="tick">超前预售</button>
             <button v-if="items.isVideo" class="video">预告片</button>
           </div>
-        </router-link> 
+        </li> 
       </ul>
       <div>
          <p class="month">5月</p>
          <ul>
-        <router-link tag="li" to=""  v-for="itemss in datalistMvH" :key="itemss.id">
+        <li v-for="itemss in datalistMvH" :key="itemss.id" @click="handles(itemss.id)">
           <p class="day">{{itemss.rDay}}日</p>
           <img :src="itemss.image" alt="" >
           <div class="titleM">
@@ -68,7 +68,7 @@
             <button v-if="itemss.isTicket" class="tick">超前预售</button>
             <button v-if="itemss.isVideo" class="video">预告片</button>
           </div>
-        </router-link> 
+        </li> 
       </ul>
       </div>
      
@@ -119,8 +119,19 @@ export default {
       methodTick(data){
         this.$router.push(`/buy/coming/${data}`)
         // console.log()
-      }
+      },
+      handle (id) {
+          this.$router.push(`/details/${id}`)
+      },
+      handles (id) {
+          this.$router.push(`/details/${id}`)
+      },
+      handleh (id) {
+          this.$router.push(`/details/${id}`)
+      },
+      
   }
+ 
 };
 </script>
 <style lang="scss" scoped>

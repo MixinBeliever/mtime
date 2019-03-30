@@ -16,12 +16,21 @@
 import Nowplaying from './Index/Nowplaying.vue'
 import Shopmid from './Index/Shopmid.vue'
 import Hotnew from './Index/Hotnew.vue'
+import { Indicator } from 'mint-ui';
+import { MessageBox } from 'mint-ui';
 export default {
+  beforeCreate () {
+    Indicator.open('加载中...');
+  },
+  created () {
+    Indicator.close();
+  },
   components : {
     Nowplaying : Nowplaying,
     Shopmid : Shopmid,
     Hotnew : Hotnew
-  }
+  },
+
 }
 </script>
 <style lang="scss" scoped>

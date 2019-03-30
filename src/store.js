@@ -6,11 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     isHeaderShow: true,
-<<<<<<< HEAD
-    isshowVideo : true
-=======
+    isshowVideo : true,
     isHeaderFixed: false
->>>>>>> ca9e6f923f02057d5c0a3efeb75cf296c4c8706a
   },
   mutations: {
 

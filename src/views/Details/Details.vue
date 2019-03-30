@@ -118,7 +118,7 @@ main{
             width: 40%;
             border: 2px solid #fff;
             position: absolute;
-            top: -103px;
+            top: -88px;
             left:10%;
         }
         div{
@@ -131,6 +131,7 @@ main{
                 color: #fff;
                 font-size: 28px;
                 text-align: left;
+                margin-top: 10px;
             }
             ul{
                 position: absolute;
@@ -145,10 +146,8 @@ main{
                     padding: 3% 1%;
                     font-style: normal;
                     background:#fff;
-                    border-radius: 30%;
-                    border:1px solid #1C2635;
                     color: #333;
-                    background: skyblue;
+                    background: #fafafa;
                 }
                 }
             }
@@ -186,19 +185,20 @@ main{
         -3px -3px 3px #ccc;
         border: 1px solid #ccc;
         font-size: 16px;
-        line-height: 25px;
+        line-height: 30px;
         text-overflow: ellipsis;
         padding-bottom: 18px;
         overflow: hidden;
         b{
             display: block;
-            font-weight: 100;
-           
+            font-weight: 400;
+            font-size: 17px;
+            letter-spacing: 1px;
         }
     }
 }
 .minh{
-    height: 100px !important;
+    height: 99px !important;
 }
 .maxh{
     height: 100% !important;
@@ -207,8 +207,10 @@ main{
     display: block;
     height: 20px;
     margin: 0 auto;
-    width: 20%;
-    
+    width: 40%;
+    padding-top:20px;
+    font-size: 20px;
+    text-align: center;
 }
 </style>
 

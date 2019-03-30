@@ -39,6 +39,7 @@
 </template>
 <script>
 import axios from 'axios'
+import { Indicator } from 'mint-ui';
 export default {
     data () {
         return {
@@ -52,6 +53,7 @@ export default {
         }
     },
     mounted () {
+        Indicator.open('加载中...');
         axios ({
             url : `/Service/callback.mi/movie/Detail.api?movieId=${this.$route.params.detailsId}&locationId=290&t=20193291347472788`
         }).then( (res) => {
@@ -63,6 +65,7 @@ export default {
             this.release = res.data.release
             this.commonSpecial = res.data.commonSpecial
             this.content = res.data.content
+            Indicator.close();
         })
         this.$store.state.isHeaderShow = false;
     },

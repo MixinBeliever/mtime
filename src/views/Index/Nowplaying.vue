@@ -15,6 +15,7 @@
 <script>
 // @ is an alias to /src
 import axios from 'axios'
+import { Indicator } from 'mint-ui';
 export default {
     data () {
       return {
@@ -27,6 +28,7 @@ export default {
 
       }).then( (res) => {
         this.datalist = res.data.ms
+        Indicator.close();
       })
     },
     methods : {

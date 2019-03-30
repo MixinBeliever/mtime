@@ -152,6 +152,7 @@ main{
         display: block;
         color: #fff;
         outline: none;
+        border: none;
     }
 }
 

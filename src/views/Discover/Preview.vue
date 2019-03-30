@@ -17,10 +17,10 @@
       <div class="newslist">
       	<ul class="_newsList">
       	
-      		<li class="table" v-for="item,index in datalist" :key="index"  >
+      		<li class="table" v-for="item,index in datalist" :key="index">
 				<div class="box">
       			<div class="newstext1">
-      				<a href="">
+      				<a>
       					<img :src="item.coverImg">
       					<i><img src="../../../public/imgs/u=3491449200,1436466609&fm=26&gp=0.jpg" alt=""></i>
       				</a>
@@ -64,7 +64,8 @@
 		data(){
 			return{
 				datalist:[],
-				leileilist:[]
+				leileilist:[],
+
 			}
 		},
       mounted(){
@@ -77,7 +78,15 @@
       		console.log(res.data)
       		this.leileilist = res.data.trailer
       	})      	
-      }
+      },
+      // methods : {
+      // 	openpp (url) {
+      // 		//location.href= url
+      // 		//window.open(url)
+      // 		this.$router.push(url)
+      // 		console.log(url)
+      // 	}
+      // }
         
 	}
 </script>

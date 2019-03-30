@@ -3,7 +3,7 @@
 
         <div class="chartspic">
 	      	<ul>
-	      		<li>
+	      		<li @click="handle2(leileilist.reviewID)">
 	      		  <img :src="leileilist.imageUrl" >{{leileilist.title}}
 	      		  <h2>
 	      		  	<i><img :src="leileilist.posterUrl" alt=""></i>
@@ -17,8 +17,8 @@
 
 
         <ul class="topnews">
-        	<li class="link" v-for="data in datalist">
-        		<a href="">
+        	<li class="link" v-for="data in datalist" @click="handle1(data.id)">
+        		<a>
         			<div class="toptxt">
         				<h2>
         					<b>{{data.title}}</b>
@@ -57,6 +57,19 @@
 	      		console.log(res.data)
 	      		this.leileilist = res.data.review
 	      	})           	
+          },
+          methods :{
+          	handle1 (id) {
+          		this.$router.push(`/noviexq/${id}`)
+
+          		console.log(id)
+          	},
+          	handle2 (id) {
+          		this.$router.push(`/noviexq/${id}`)
+
+          		console.log(id)
+          	},
+          	
           }
 	}
 </script>

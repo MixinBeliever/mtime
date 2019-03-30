@@ -18,6 +18,7 @@ import Coming from "./views/Buy/Coming"
 import Hotcontent from "./views/Index/hot/Hotcontent.vue"
 import Searchs from "./views/Index/search/Search.vue"
 import Details from "./views/Details/Details"
+import myDetails from "./views/Buy/Mydateils"
 
 
 Vue.use(Router)
@@ -50,6 +51,8 @@ export default new Router({
       path: '/search',
       component: Searchs,
      },
+
+
     {
       path: '/buy',
       name: 'buy',
@@ -68,11 +71,20 @@ export default new Router({
           redirect : '/buy/hit'
         },
         {
+          path: '/buy/coming/:comingid',
+          component :myDetails
+        },
+        {
           path :'*',
           redirect : '/buy/hit'
         }
       ]
     },
+
+
+
+
+
     {
       path: '/shop',
       name: 'shop',

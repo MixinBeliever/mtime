@@ -41,11 +41,8 @@
 <script>
 import Vue from 'vue'
 import axios from 'axios'
-<<<<<<< HEAD
 import DetailsText from "./DetailsText"
-=======
 import { Indicator } from 'mint-ui';
->>>>>>> a02ef793efffe24560c718c9334b52295b1b7646
 export default {
     data () {
         return {

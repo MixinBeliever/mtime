@@ -35,16 +35,38 @@
         精选影评(3)
         <span>&gt;</span>
       </h2>
-      <p></p>
-      <p></p>
-      <div>
-        <img src alt>
+      <p class="comments">{{comments}}</p>
+      <p class="content">{{content}}</p>
+      <div class="testA">
+        <img :src="headurl" alt>
         <div>
-          <p></p>
-          <p></p>
-          <i></i>
+          <p>{{nickname}}</p>
+          <p>19小时前看过&nbsp;-&nbsp;评论</p>
+          <i>{{rating}}.0</i>
         </div>
       </div>
+    </div>
+    <object data="https://static4da.mtime.cn/feature/mobile/banner/2019/0311/hvtnd750175.html" class="obj"></object>
+
+
+    <div class="friend">
+      <h2>网友评论&nbsp;(&nbsp;{{totalCommentCount}}&nbsp;)&nbsp;</h2>
+      <ul>
+        <li v-for="(item,index) in cts" :key="index">
+          <img :src="item.caimg" alt="">
+          <div>
+            <p>
+              <span>{{item.ca}}</span>
+              <span class="time">{{item.cr}}</span>
+            </p>
+            <p>{{item.ce}}</p>
+            <p>
+              <span>回复</span>
+              <span>赞</span>
+            </p>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -59,7 +81,15 @@ export default {
       actorList: [],
       imageCount: "",
       images: [],
-      comments:''
+      comments:[],
+      content:'',
+      headurl:'',
+      nickname:'',
+      rating:'',
+
+      // 网友评论数据
+      cts:[],
+      totalCommentCount: '',
     };
   },
   mounted() {
@@ -74,16 +104,23 @@ export default {
       this.imageCount = res.data.imageCount;
       this.images = res.data.images;
     });
-
-    ///Service/callback.mi/Movie/HotLongComments.api?movieId=222039&pageIndex=1&t=20193309381557206
-    //${this.$route.params.detailsId}
     axios({
       url: `/Service/callback.mi/Movie/HotLongComments.api?movieId=${
         this.$route.params.detailsId
       }&pageIndex=1&t=20193309381557206`
     }).then(res => {
-      console.log(res.data.comments);
-      this
+      this.comments = res.data.comments[0].title
+      this.content = res.data.comments[0].content
+      this.headurl = res.data.comments[0].headurl
+      this.nickname = res.data.comments[0].nickname
+      this.rating = res.data.comments[0].rating
+    });
+    axios({
+      url: `/Service/callback.mi/Showtime/MovieComments.api?movieId=${ this.$route.params.detailsId}&pageIndex=1&t=20193301419555705`
+    }).then(res => {
+      console.log(res.data);
+      this.totalCommentCount = res.data.totalCommentCount
+      this.cts = res.data.cts
     });
 
     this.$store.state.isHeaderShow = false;
@@ -120,17 +157,19 @@ export default {
       }
     }
     .actorRight {
+      width: 100%;
       .actorRightP {
         margin-bottom: 5px;
       }
       img {
         width: 6em;
         height: 6em;
+        margin: 0 auto;
       }
       div {
+        width: 50%;
         float: left;
         text-align: center;
-        padding-right: 23px;
         p {
           font-size: 12px;
         }
@@ -165,9 +204,119 @@ export default {
   // 精选影评
   .review {
       width: 100%;
+      background: #fff;
     span {
         float: right;
         padding-right: 20px;
+    }
+    .comments{
+      margin-left: 20px;
+      padding-right: 20px;
+      font-size: 20px;
+      line-height: 180%;
+    }
+    .content{
+      background: #fff;
+       margin-left: 20px;
+       margin-right: 20px;
+       display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+    .testA{
+      height: 30%;
+      margin-top: 30px;
+      margin-left: 20px;
+      display: flex;
+      img{
+        width: 15%;
+        height: 15%;
+        border-radius: 50%;
+        padding: 10px 0;
+      }
+      div{
+        width: 100%;
+        margin-left: 20px;
+        padding: 10px 0;
+        p:nth-of-type(1){
+          width: 100%;
+        }
+        p:nth-of-type(2){
+            display: inline-block;
+        }
+        i{
+          display: inline-block;
+          width: 10%;
+          height: 40%;
+          background: #43f35b;
+          margin-left: 20px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  object{
+    width: 100%;
+    margin-top: 5%;
+    height: 105px;
+  }
+  .friend{
+    ul{
+      li{
+        width: 100%;
+        background: #fff;
+        display: flex;
+        border-bottom: 2px solid #a1a1a1;
+        padding-bottom: 20px;
+        padding-top: 10px;
+        img{
+        width: 15%;
+        height: 15%;
+        border-radius: 50%;
+        margin-left: 20px;
+        }
+        div{
+          position: relative;
+          padding-left: 20px;
+          width: 100%;
+          padding-bottom: 20px;
+          p:nth-of-type(1){
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+              span:nth-of-type(2){
+                display: inline-block;
+                width: 20%;
+                height: 100%;
+                margin-right: 20px;
+                text-align: center;
+                margin-left: 10px;
+                background: #2cc240;
+                color: #fff;
+              
+            }
+          }
+          p:nth-of-type(2){
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            padding-right: 20px;
+            font-size: 20px;
+            color: #707070;
+          }
+          p:nth-of-type(3){
+            position: absolute;
+            right: 23px;
+            bottom:-10px;
+            font-size: 16px;
+            span{
+              margin: 0 10px;
+            }
+          }
+        }
+      }
     }
   }
 }

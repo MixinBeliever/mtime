@@ -1,6 +1,6 @@
 <template>
 	<div class="news">
-		这是新闻	
+	
       <div class="newspic">
       	<ul>
       		<li>
@@ -129,25 +129,30 @@ div.news{
 			    	font-size: 20px;
 				    line-height: 1.3;
 				    font-weight: bold;
-				    margin-bottom: 10px
+				    margin-bottom: 10px;
 							    
 			    }
 			    div.newstext{
+			    	
+			    	display: flex;
 			    	width: 100%;
-			    	height: 100px;
+
 			    	 a{
+			    	 	 box-sizing: border-box;
 
 			    	 	img{
 			    	 		display: block;
-			    	 		width: 118px;
-			    	 		height: 100px;
+			    	 		width: 29.3%;
+			    	 		height: 100%;
 			    	 		float: left;
-			    	 		margin-left: 10px;
+			    	 		padding-left: 10px;
+	
 			    	 	}
 			    	   
 			    	 }
 			    }
 			    div.right{
+			    	 box-sizing: border-box;
 			    	padding: 0 15px;
 			    	dl{
 			    		margin-top: -4px;
@@ -161,18 +166,18 @@ div.news{
 			    		}
 			    		dd{
 			    			color: #777;
-  							padding: 10px 4px;
+  							/*padding: 10px 4px;*/
 			    			p{
 			    				 font-size: 26px;
 			    			}
 			    		}
 			    		dd.bri{
-			    			margin-left:10px;
+			    		/*	margin-left:10px;*/
 			    			time{
                                margin-right: 10px;
 			    			}
 			    			b{ 
-                               margin-left: 100px;
+                               margin-left: 30px;
 			    			}
 			    		}
 			    	}

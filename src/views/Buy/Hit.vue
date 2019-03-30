@@ -44,15 +44,17 @@ export default {
                 padding: 20px 10px;
                 box-sizing: border-box;
                 width: 100%;
+                display: flex;
+                justify-content: flex-start;
                 border-bottom: 1px solid #bfc0c0;
                 img{
-                    width: 20%;
-                    float: left;
+                    width: 85px;
+                    height: 108px;
                     margin-right: 10px;
                 }
                 .message{
                     position: relative;
-                   
+                    display: flex;
                     flex-wrap: wrap;
                     p:nth-of-type(1){ display: flex;
                         font-size: 20px;
@@ -81,10 +83,10 @@ export default {
                     }
                     button{
                         position: absolute;
-                        right: 20px;
-                        width:100px;
-                        height: 40px;
-                        bottom: -10px;
+                        right: 0px;
+                        width:80px;
+                        height: 30px;
+                        bottom: 0px;
                         color: #fff;
                         background: #f39406;
                         border: none;

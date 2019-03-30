@@ -4,9 +4,9 @@
       <div class="newspic">
       	<ul>
       		<li>
-      		  <img src="http://img5.mtime.cn/mg/2017/07/19/103505.79149520.jpg" >
+      		  <img :src="leileilist.imageUrl" >
       		  <h2>
-      		  	<b> 2017年SDCC圣地亚哥国际漫展前瞻</b>
+      		  	<b> {{leileilist.title}}</b>
       		  </h2>	
       		</li>
       	</ul>
@@ -22,7 +22,7 @@
       				
       				</a>
       			</div>
-      			<time>8小时</time>
+      			<time>60分钟</time>
       		</li>
       		<li class="table"   v-else>
 				<div class="box">
@@ -38,7 +38,7 @@
       						<p></p>
       					</dd>
       					<dd class="bri">
-      						<time>8小时</time>
+      						<time>60分钟</time>
       						<b>评论:{{item.commentCount}}</b>
       					</dd>
       				</dl>
@@ -70,17 +70,21 @@
 	export default{
 		data(){
 			return{
-				datalist:[]
+				datalist:[],
+				leileilist:[]
 			}
 		},
       mounted(){
       	axios.get('/Service/callback.mi/News/NewsList.api?t=201932810404715298&pageIndex=1').then(res=>{
-               console.log(res.data.newsList)
+               // console.log(res.data.newsList)
 
                this.datalist = res.data.newsList
+      	}),
+      	axios.get('/Service/callback.mi/PageSubArea/GetRecommendationIndexInfo.api?t=20193309523168353').then(res=>{
+      		console.log(res.data.topList)
+      		this.leileilist = res.data.news
       	})
-      }
-        
+      },
 	}
 </script>
 

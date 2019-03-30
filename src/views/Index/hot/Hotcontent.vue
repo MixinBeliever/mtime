@@ -9,6 +9,7 @@
 </template>
 <script>
 import axios from 'axios'
+import { Indicator } from 'mint-ui';
 export default {
     data () {
         return {
@@ -16,13 +17,16 @@ export default {
         }
     },
     mounted () { 
+        Indicator.open('加载中...');
         axios({
             url : `/Service/callback.mi/News/Detail.api?newsId=${this.$route.params.hotcontentid}&t=201932816571733730`
         }).then( (res) => {
             console.log(res.data)
-            this.datalist = res.data.content  
+            this.datalist = res.data.content 
+            Indicator.close();
         })
         this.$store.state.isHeaderShow = false;
+         
     },
     destroyed () {
         this.$store.state.isHeaderShow = true

@@ -41,7 +41,11 @@
 <script>
 import Vue from 'vue'
 import axios from 'axios'
+<<<<<<< HEAD
 import DetailsText from "./DetailsText"
+=======
+import { Indicator } from 'mint-ui';
+>>>>>>> a02ef793efffe24560c718c9334b52295b1b7646
 export default {
     data () {
         return {
@@ -55,6 +59,7 @@ export default {
         }
     },
     mounted () {
+        Indicator.open('加载中...');
         axios ({
             url : `/Service/callback.mi/movie/Detail.api?movieId=${this.$route.params.detailsId}&locationId=290&t=20193291347472788`
         }).then( (res) => {
@@ -66,6 +71,7 @@ export default {
             this.release = res.data.release
             this.commonSpecial = res.data.commonSpecial
             this.content = res.data.content
+            Indicator.close();
         })
         this.$store.state.isHeaderShow = false;
     },

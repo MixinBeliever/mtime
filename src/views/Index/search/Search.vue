@@ -20,6 +20,7 @@
 </template>
 <script>
 import axios from 'axios'
+import { Indicator } from 'mint-ui';
 export default {
     data () {
         return {
@@ -28,12 +29,13 @@ export default {
         }
     },
     mounted () {
+        Indicator.open('加载中...');
         this.$store.state.isHeaderShow = false
         axios ({
             url : '/Service/callback.mi/Search/HotKeyWords.api?t=20193298435293257'
-        }).then ( (res) => {
-            console.log(res.data.keywords)
+        }).then ( (res) => { 
             this.keywords = res.data.keywords
+             Indicator.close();
         })
     },
     destroyed () {

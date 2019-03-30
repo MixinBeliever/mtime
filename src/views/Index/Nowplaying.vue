@@ -2,19 +2,20 @@
    <div class="box">
        <h1>正在热映</h1>
         <ul>
-            <router-link to="" tag="li" v-for="(data,index) in datalist" :key="data.id" v-if="index<8">
+            <li v-for="(data,index) in datalist" :key="data.id" v-if="index<8" @click="handleLi(data.id)">
                 <img :src="data.img">
                 <p>{{data.t}}</p>
                 <span v-if="data.r > 0">
-                  <i>{{data.r}}</i>
+                <i>{{data.r}}</i>
                 </span>
-            </router-link>   
+            </li>   
         </ul>
    </div>
 </template>
 <script>
 // @ is an alias to /src
 import axios from 'axios'
+import { Indicator } from 'mint-ui';
 export default {
     data () {
       return {
@@ -27,7 +28,13 @@ export default {
 
       }).then( (res) => {
         this.datalist = res.data.ms
+        Indicator.close();
       })
+    },
+    methods : {
+      handleLi (id) {
+        this.$router.push(`/details/${id}`)
+      }
     }
 
 }

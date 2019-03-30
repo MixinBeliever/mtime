@@ -16,12 +16,21 @@
 import Nowplaying from './Index/Nowplaying.vue'
 import Shopmid from './Index/Shopmid.vue'
 import Hotnew from './Index/Hotnew.vue'
+import { Indicator } from 'mint-ui';
+import { MessageBox } from 'mint-ui';
 export default {
+  beforeCreate () {
+    Indicator.open('加载中...');
+  },
+  created () {
+    Indicator.close();
+  },
   components : {
     Nowplaying : Nowplaying,
     Shopmid : Shopmid,
     Hotnew : Hotnew
-  }
+  },
+
 }
 </script>
 <style lang="scss" scoped>
@@ -39,7 +48,7 @@ export default {
     }    
     .search{
       float:left;
-      width: 60%;
+      width: 62%;
       height: 35px;
       border: 1px solid #999;
       margin-top: 14px;
@@ -48,16 +57,17 @@ export default {
       text-indent: 12%;
       border-radius: 5px;
       color:#aaa;
-      background: url(../../public/imgs/search_ico_01.png ) no-repeat;
-      background-size: 32px;
+      background: url(../../public/imgs/search_ico_01.png ) no-repeat 9px 4px;
+      background-size: 30px;
       background-color: #fff;
+      font-size: 14px;
     }
   }
   .comingsoon{
     width: 100%;
     height: 50px;
     border-bottom:1px solid #ccc; 
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 800;
     line-height: 50px;
     padding-left: 30px;

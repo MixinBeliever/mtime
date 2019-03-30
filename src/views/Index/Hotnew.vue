@@ -59,9 +59,10 @@ export default {
         height: 100%;
         h2{
             margin-top: 8%;
+            font-size: 20px;
         }
         li{
-            padding-top: 8%;
+            padding-top: 5%;
             width: 100%;
             display: flex;
             img{

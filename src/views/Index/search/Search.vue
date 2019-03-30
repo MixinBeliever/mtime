@@ -3,7 +3,7 @@
         <header>
             <router-link to="/index" tag="span"> < </router-link>
             <div>
-                <input type="text" @input="input" v-model="inputlist">
+                <input type="text" @click="input" v-model="inputlist" @blur="iblur">
                 <button @click="button">搜索</button>
             </div>
         </header> 
@@ -20,20 +20,22 @@
 </template>
 <script>
 import axios from 'axios'
+import { Indicator } from 'mint-ui';
 export default {
     data () {
         return {
-            inputlist : '影片/影院/影人 ，任你搜',
+            inputlist : '影片/影院/影人,任你搜',
             keywords : '',
         }
     },
     mounted () {
+        Indicator.open('加载中...');
         this.$store.state.isHeaderShow = false
         axios ({
             url : '/Service/callback.mi/Search/HotKeyWords.api?t=20193298435293257'
-        }).then ( (res) => {
-            console.log(res.data.keywords)
+        }).then ( (res) => { 
             this.keywords = res.data.keywords
+             Indicator.close();
         })
     },
     destroyed () {
@@ -41,11 +43,13 @@ export default {
     },
     methods :{
         input () {
-            console.log('aaa')
+            this.inputlist =''
         },
         button () {
             console.log('this.keywords')
-           location.href =`http://m.mtime.cn/#!/search/list/${this.keywords}/`
+        },
+        iblur () {
+           this.inputlist = '影片/影院/影人,任你搜'
         },
        
     }

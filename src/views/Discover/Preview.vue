@@ -1,12 +1,13 @@
 <template>
 	<div class="news">
-		这是预告	
+
       <div class="newspic">
       	<ul>
-      		<li>
-      		  <img src="http://img5.mtime.cn/mg/2019/03/21/142620.19535364_120X90X4.jpg" >
+      		<li @click.prevent="hande(leileilist.id)">
+      		  <img :src="leileilist.hightUrl" >
+      		  {{leileilist.title}}
       		  <h2>
-      		  	<b> 基努·李维斯《疾速追杀3》预告片</b>
+      		  	<b> {{leileilist.title}}</b>
       		  	<i><img src="../../../public/imgs/u=1873585367,1967240943&fm=26&gp=0.jpg" alt=""></i>
       		  </h2>	
       		</li>
@@ -16,10 +17,10 @@
       <div class="newslist">
       	<ul class="_newsList">
       	
-      		<li class="table" v-for="item,index in datalist" :key="index"  >
+      		<li class="table" v-for="item,index in datalist" :key="index">
 				<div class="box">
       			<div class="newstext1">
-      				<a href="">
+      				<a>
       					<img :src="item.coverImg">
       					<i><img src="../../../public/imgs/u=3491449200,1436466609&fm=26&gp=0.jpg" alt=""></i>
       				</a>
@@ -62,7 +63,9 @@
 	export default{
 		data(){
 			return{
-				datalist:[]
+				datalist:[],
+				leileilist:[],
+
 			}
 		},
       mounted(){
@@ -70,7 +73,17 @@
                console.log(res.data)
 
                this.datalist = res.data.trailers
-      	})
+      	}),
+      	axios.get('/Service/callback.mi/PageSubArea/GetRecommendationIndexInfo.api?t=20193309523168353').then(res=>{
+      		console.log(res.data)
+      		this.leileilist = res.data.trailer
+      	})      	
+      },
+      methods : {
+         hande(id){
+         	console.log(id)
+             this.$router.push(`/previewxq/${id}`);
+         }
       }
         
 	}
@@ -98,6 +111,7 @@ div.news{
 				    padding: 24px 0 24px;
 				    text-align: center;
 				    i{
+				    
 				    	position: absolute;
 				    	width: 40px;
 				    	height: 40px;
@@ -122,25 +136,31 @@ div.news{
 	}	
 
     div.right{
-		padding: 0 15px;
+    	box-sizing: border-box;
+    	width: 58%;
 		dl{
+		 	margin-left: 4%;
 			margin-top: -4px;
 			position: relative;
 			height: 120px;
 			width: 100%;
+			overflow: hidden;
 			dt{
+			 		
 				font-size: 20px;
 			    line-height: 1.3;
 			    font-weight: bold;
 			}
 			dd{
+				
 			    color: #777;
-  				padding: 10px 4px;
+  				
 			    p{
 			    	 font-size: 26px;
 			    }
 			}
 			dd.bri{
+				
 			    margin-left:10px;
 			    overflow: hidden;
                 text-overflow: ellipsis;
@@ -165,8 +185,7 @@ div.news{
 
 
 	div.newslist{
-	    box-sizing: border-box;
-	   
+	    box-sizing: border-box; 
 		ul._newsList{
 			padding: 0 0 0 20px;
 			li.table{
@@ -175,6 +194,7 @@ div.news{
 			    cursor: pointer;
 			    position: relative;
 				div.box{
+					box-sizing: border-box;
 					display: flex;
 				    div.newstext1{
 				    	/*width: 100%;*/
@@ -189,6 +209,7 @@ div.news{
 				    	 		
 				    	 	}
 				    	 	i{
+				    	 		box-sizing: border-box;
 						    	position: absolute;
 						    	width: 40px;
 						    	height: 40px;

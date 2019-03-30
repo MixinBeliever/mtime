@@ -1,14 +1,14 @@
 <template>
 	<div class="charts">
-		这是影评	
+
         <div class="chartspic">
 	      	<ul>
-	      		<li>
-	      		  <img src="http://img5.mtime.cn/mt/2019/03/04/095504.68978862_1280X720X2.jpg" >
+	      		<li @click="handle2(leileilist.reviewID)">
+	      		  <img :src="leileilist.imageUrl" >{{leileilist.title}}
 	      		  <h2>
-	      		  	<i><img src="http://img5.mtime.cn/mt/2019/03/04/095504.68978862_1280X720X2.jpg" alt=""></i>
-	      		  	<span>都挺好</span>
-	      		  	<p>“结合原著看苏母，才发觉她是那..</p>
+	      		  	<i><img :src="leileilist.posterUrl" alt=""></i>
+	      		  	<span>{{leileilist.movieName}}</span>
+	      		  	<p>“{{leileilist.title}}</p>
 	      		  </h2>	
 
 	      		</li>
@@ -17,8 +17,8 @@
 
 
         <ul class="topnews">
-        	<li class="link" v-for="data in datalist">
-        		<a href="">
+        	<li class="link" v-for="data in datalist" @click="handle1(data.id)">
+        		<a>
         			<div class="toptxt">
         				<h2>
         					<b>{{data.title}}</b>
@@ -27,7 +27,7 @@
         					<i><img :src="data.userImage" alt=""></i>
         					<span>{{data.nickname}}-评分</span>
 	    					<span class="ming" href="">《{{data.relatedObj.title}}》</span>
-	    					<span class="pf">{{data.relatedObj.rating}}</span>
+	    					<span class="pf" v-if="data.relatedObj.rating">{{data.relatedObj.rating}}</span>
         				</p>
         			</div>
         			<i></i>
@@ -44,14 +44,32 @@
 	export default{
           data(){
           	return{
-          		datalist:[]
+          		datalist:[],
+          		leileilist:[]
           	}
           },
           mounted(){
           	axios.get('/Service/callback.mi/MobileMovie/Review.api?needTop=false&t=20193281983175621').then(res=>{
           		console.log(res.data)
           		this.datalist = res.data
-          	})
+          	}),
+	      	axios.get('/Service/callback.mi/PageSubArea/GetRecommendationIndexInfo.api?t=20193309523168353').then(res=>{
+	      		console.log(res.data)
+	      		this.leileilist = res.data.review
+	      	})           	
+          },
+          methods :{
+          	handle1 (id) {
+          		this.$router.push(`/noviexq/${id}`)
+
+          		console.log(id)
+          	},
+          	handle2 (id) {
+          		this.$router.push(`/noviexq/${id}`)
+
+          		console.log(id)
+          	},
+          	
           }
 	}
 </script>
@@ -112,24 +130,25 @@ div.charts{
         margin-top: 21px;
         box-sizing: border-box;
 		li.link{
-			width: 100%;
+			width: 95%;
 			padding: 0 0 0 15px;
 			a{
-				width: 100%;
+				
 				text-decoration:none;
 				display: block;
 			    text-align: left;
 			    padding: 17px 0;
 			    position: relative;
 			    border-bottom: 1px solid #d8d8d8;
-			    overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+
 
 				div.toptxt{
 					h2{
 						margin-right: 30px;
                         line-height: 1.4;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
 						b{
 							font-size: 20px;
 							color: #000;
@@ -140,6 +159,7 @@ div.charts{
 						margin-top: 6.5px;
 					    padding: 0 30px 0 0;
 					    height: 16px;
+
 					    i{
 					    	float: left;
 					    	display: block;
@@ -160,8 +180,8 @@ div.charts{
 
 						}
 						span.ming{
-							width: 150px;
-							height: 10px;
+							/*width: 150px;*/
+							/*height: 10px;*/
 							float: left;
 
 						}

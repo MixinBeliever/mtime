@@ -1,12 +1,12 @@
 <template>
 	<div class="news">
-		这是新闻	
+	
       <div class="newspic">
       	<ul>
-      		<li>
-      		  <img src="http://img5.mtime.cn/mg/2017/07/19/103505.79149520.jpg" >
+      		<li @click="handleheader(leileilist.newsID)">
+      		  <img :src="leileilist.imageUrl" >
       		  <h2>
-      		  	<b> 2017年SDCC圣地亚哥国际漫展前瞻</b>
+      		  	<b> {{leileilist.title}}</b>
       		  </h2>	
       		</li>
       	</ul>
@@ -14,20 +14,20 @@
 
       <div class="newslist">
       	<ul class="_newsList">
-      		<li class="table"  v-for="item,index in datalist" :key="index" v-if="item.images.length !== 0">
+      		<li class="table"  v-for="item,index in datalist" :key="index" v-if="item.images.length !== 0" @click="handleheader1(item.id)">
       			<p>{{item.title}}</p>
       			<div class="newstext" >
-      				<a href="" >
+      				<a>
       					<img  alt="" v-for="list,index in item.images" :key="index" :src="list.url1">
       				
       				</a>
       			</div>
-      			<time>8小时</time>
+      			<time>60分钟</time>
       		</li>
-      		<li class="table"   v-else>
+      		<li class="table"   v-else  @click="handleheader2(item.id)">
 				<div class="box">
       			<div class="newstext1">
-      				<a href="">
+      				<a>
       					<img :src="item.image">
       				</a>
       			</div>
@@ -38,7 +38,7 @@
       						<p></p>
       					</dd>
       					<dd class="bri">
-      						<time>8小时</time>
+      						<time>60分钟</time>
       						<b>评论:{{item.commentCount}}</b>
       					</dd>
       				</dl>
@@ -70,7 +70,8 @@
 	export default{
 		data(){
 			return{
-				datalist:[]
+				datalist:[],
+				leileilist:[]
 			}
 		},
       mounted(){
@@ -78,9 +79,23 @@
                console.log(res.data.newsList)
 
                this.datalist = res.data.newsList
+      	}),
+      	axios.get('/Service/callback.mi/PageSubArea/GetRecommendationIndexInfo.api?t=20193309523168353').then(res=>{
+      		console.log(res.data.news)
+      		this.leileilist = res.data.news
       	})
+      },
+      methods :{
+      	handleheader (id) {
+      		this.$router.push(`/hotcontent/${id}`)
+      	},
+      	handleheader1(id){
+      		this.$router.push(`/hotcontent/${id}`)
+      	},
+      	handleheader2(id){
+      		this.$router.push(`/hotcontent/${id}`)
+      	}
       }
-        
 	}
 </script>
 
@@ -91,11 +106,11 @@ div.news{
 	  	ul{
 		   	li{
 			    position: relative;
-			    height: 275px;
+			    height: 213px;
 			    overflow: hidden;
 		    	img{
 			    	width: 100%;
-			    	height: auto;
+			    	height: 100%;
 		    	}
 		    	h2{
 				    background: rgba(0,0,0,0.5);
@@ -129,25 +144,30 @@ div.news{
 			    	font-size: 20px;
 				    line-height: 1.3;
 				    font-weight: bold;
-				    margin-bottom: 10px
+				    margin-bottom: 10px;
 							    
 			    }
 			    div.newstext{
+			    	
+			    	display: flex;
 			    	width: 100%;
-			    	height: 100px;
+
 			    	 a{
+			    	 	 box-sizing: border-box;
 
 			    	 	img{
 			    	 		display: block;
-			    	 		width: 118px;
-			    	 		height: 100px;
+			    	 		width: 29.3%;
+			    	 		height: 100%;
 			    	 		float: left;
-			    	 		margin-left: 10px;
+			    	 		padding-left: 10px;
+	
 			    	 	}
 			    	   
 			    	 }
 			    }
 			    div.right{
+			    	 box-sizing: border-box;
 			    	padding: 0 15px;
 			    	dl{
 			    		margin-top: -4px;
@@ -161,18 +181,18 @@ div.news{
 			    		}
 			    		dd{
 			    			color: #777;
-  							padding: 10px 4px;
+  							/*padding: 10px 4px;*/
 			    			p{
 			    				 font-size: 26px;
 			    			}
 			    		}
 			    		dd.bri{
-			    			margin-left:10px;
+			    		/*	margin-left:10px;*/
 			    			time{
                                margin-right: 10px;
 			    			}
 			    			b{ 
-                               margin-left: 100px;
+                               margin-left: 30px;
 			    			}
 			    		}
 			    	}

@@ -1,7 +1,7 @@
 <template>
    <div>
     <header>
-    <router-link to="/index" tag="span"> < </router-link>
+    <router-link to="/discover/movie" tag="span"> < </router-link>
     <router-link to="/search" tag="h2"> 搜电影 </router-link>
     </header> 
     <div v-html="this.datalist" id="box"></div> 
@@ -19,7 +19,7 @@ export default {
     mounted () { 
         Indicator.open('加载中...');
         axios({
-            url : `/Service/callback.mi/News/Detail.api?newsId=${this.$route.params.hotcontentid}&t=201932816571733730`
+            url : `/Service/callback.mi/Review/Detail.api?reviewId=${this.$route.params.myid}&t=201933013244393523`
         }).then( (res) => {
             console.log(res.data)
             this.datalist = res.data.content 

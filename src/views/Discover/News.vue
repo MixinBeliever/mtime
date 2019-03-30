@@ -3,10 +3,10 @@
 	
       <div class="newspic">
       	<ul>
-      		<li>
-      		  <img src="http://img5.mtime.cn/mg/2017/07/19/103505.79149520.jpg" >
+      		<li @click="handleheader(leileilist.newsID)">
+      		  <img :src="leileilist.imageUrl" >
       		  <h2>
-      		  	<b> 2017年SDCC圣地亚哥国际漫展前瞻</b>
+      		  	<b> {{leileilist.title}}</b>
       		  </h2>	
       		</li>
       	</ul>
@@ -14,20 +14,20 @@
 
       <div class="newslist">
       	<ul class="_newsList">
-      		<li class="table"  v-for="item,index in datalist" :key="index" v-if="item.images.length !== 0">
+      		<li class="table"  v-for="item,index in datalist" :key="index" v-if="item.images.length !== 0" @click="handleheader1(item.id)">
       			<p>{{item.title}}</p>
       			<div class="newstext" >
-      				<a href="" >
+      				<a>
       					<img  alt="" v-for="list,index in item.images" :key="index" :src="list.url1">
       				
       				</a>
       			</div>
-      			<time>8小时</time>
+      			<time>60分钟</time>
       		</li>
-      		<li class="table"   v-else>
+      		<li class="table"   v-else  @click="handleheader2(item.id)">
 				<div class="box">
       			<div class="newstext1">
-      				<a href="">
+      				<a>
       					<img :src="item.image">
       				</a>
       			</div>
@@ -38,7 +38,7 @@
       						<p></p>
       					</dd>
       					<dd class="bri">
-      						<time>8小时</time>
+      						<time>60分钟</time>
       						<b>评论:{{item.commentCount}}</b>
       					</dd>
       				</dl>
@@ -70,7 +70,8 @@
 	export default{
 		data(){
 			return{
-				datalist:[]
+				datalist:[],
+				leileilist:[]
 			}
 		},
       mounted(){
@@ -78,9 +79,23 @@
                console.log(res.data.newsList)
 
                this.datalist = res.data.newsList
+      	}),
+      	axios.get('/Service/callback.mi/PageSubArea/GetRecommendationIndexInfo.api?t=20193309523168353').then(res=>{
+      		console.log(res.data.news)
+      		this.leileilist = res.data.news
       	})
+      },
+      methods :{
+      	handleheader (id) {
+      		this.$router.push(`/hotcontent/${id}`)
+      	},
+      	handleheader1(id){
+      		this.$router.push(`/hotcontent/${id}`)
+      	},
+      	handleheader2(id){
+      		this.$router.push(`/hotcontent/${id}`)
+      	}
       }
-        
 	}
 </script>
 
@@ -91,11 +106,11 @@ div.news{
 	  	ul{
 		   	li{
 			    position: relative;
-			    height: 275px;
+			    height: 213px;
 			    overflow: hidden;
 		    	img{
 			    	width: 100%;
-			    	height: auto;
+			    	height: 100%;
 		    	}
 		    	h2{
 				    background: rgba(0,0,0,0.5);

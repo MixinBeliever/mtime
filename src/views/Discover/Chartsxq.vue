@@ -99,6 +99,7 @@
  	}
 
  	div.zy{
+ 		box-sizing: border-box;
         background: #fff;
  		a{
  			box-sizing: border-box;
@@ -143,6 +144,8 @@
  							}
  						}
  						dl.td{
+ 							box-sizing: border-box;
+ 							width:58%;
  							margin-right: 15px;
  							dt{
  								 margin-top: -2px;
@@ -184,13 +187,14 @@
  						}
  					}
  					a.glo_tip{
- 						width: 248px;
- 						height: 32px;
+ 						/*width: 248px;
+ 						height: 32px;*/
  					    background: pink;
 
+
  						div.zi{
- 							width: 330px;
- 						    height: 39px;
+ 							/*width: 330px;
+ 						    height: 39px;*/
  					        background: #f6f6f6;
  					        margin-left: 38px;	
  					        margin-top: 10px;
@@ -204,6 +208,7 @@
 							-webkit-line-clamp: 2;
 							overflow: hidden;
 							color: #0f0f0f;
+							margin-right: 10px;
  						}
  					}
  					p.glo_line{

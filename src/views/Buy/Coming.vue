@@ -32,7 +32,7 @@
     </div>
   <!-- 广告轮播 -->
     <!-- <div v-url=""></div> -->
-    <!-- <object data="https://static4da.mtime.cn/feature/mobile/banner/2019/0311/hvtnd750175.html" class="obj"></object> -->
+    <object data="https://static4da.mtime.cn/feature/mobile/banner/2019/0311/hvtnd750175.html" class="obj"></object>
 
     <!-- 即将上映 -->
     <h1>

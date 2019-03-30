@@ -160,9 +160,6 @@ main{
         display: block;
         color: #fff;
         outline: none;
-<<<<<<< HEAD
-        border: none;
-=======
         margin-top:10px;
     }
     .text{
@@ -178,7 +175,6 @@ main{
         overflow: hidden;
         text-overflow: ellipsis;
         padding-bottom: 18px;
->>>>>>> a271d125e804cbb3b6783ea8291b8bd56368f080
     }
 }
 

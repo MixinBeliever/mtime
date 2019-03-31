@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from './views/Index.vue'
 import Buy from './views/Buy.vue'
 import Shop from './views/Shop.vue'
+import Commerce from './views/Commerce'
 import Discover from './views/Discover.vue'
 import Charts from './views/Discover/Charts'
 import Chartsxq from './views/Discover/Chartsxq'
@@ -29,11 +30,11 @@ export default new Router({
   //mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-      {
-        path: '/details/:detailsId',
-        name: 'details',
-        component: Details
-      },
+    {
+      path: '/details/:detailsId',
+      name: 'details',
+      component: Details
+    },
     {
       path: '/',
       name: 'index',
@@ -83,7 +84,11 @@ export default new Router({
       ]
     },
 
-
+    {
+      path: '/commerce',
+      name: 'commerce',
+      component: Commerce
+    },
 
 
 

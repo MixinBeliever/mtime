@@ -51,7 +51,6 @@ export default {
       interesting: interesting,
     },
     mounted(){
-      MessageBox.confirm('不喜勿喷').then(action => {
         Indicator.open('加载中...');
         axios({
           url: '/Service/callback.mi/PageSubArea/MarketFirstPageNew.api?t=2019328891340381',
@@ -93,9 +92,7 @@ export default {
             }
 
         }
-      }).catch(cancle=>{
-        this.$router.push('/index');
-      })
+     
       
     },
     destroyed(){

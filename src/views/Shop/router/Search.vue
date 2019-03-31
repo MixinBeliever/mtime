@@ -5,9 +5,8 @@
             <input type="text" placeholder="搜索正版电影周边">
             <a class="searchbtn" href=""><span>搜索</span></a>
         </div>
-        <div class="contain">
-
-        </div>
+        <slot name="confident"></slot>
+        <slot name="list"></slot>
     </div>
 </template>
 <script>
@@ -30,8 +29,8 @@ export default {
         div.search{
             height: 50px;
             background: #1c2635;
-            position: fixed;
-            top: 0;
+            // position: fixed;
+            // top: 0;
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -66,8 +65,6 @@ export default {
                 }
             }
         }
-        div.contain{
-            height: 600px;
-        }
+        
     }
 </style>

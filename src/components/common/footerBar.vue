@@ -43,16 +43,16 @@ export default {
         div.thumbs{
             height: 40px;
             background: #f6f6f6;
-            line-height: 40px;
             ul{
-                line-height: 40px;
-                justify-content: space-around;
+                display: flex;
                 text-align: center;
                 li{
                     font-size: 14px;
-                    float: left;
-                    padding: 0 20px;
+                    line-height: 40px;
+                    width: 25%;
+                    box-sizing: border-box;
                     position: relative;
+                    padding: 0 10px;
                     span{
 
                     }
@@ -63,7 +63,7 @@ export default {
                     right: 0;
                     height: 14px;
                     width: 1px;
-                    background: #e5e5e5;
+                    background: #e2e2e2;
                     top: 50%;
                     margin-top:  -7px;
                 }

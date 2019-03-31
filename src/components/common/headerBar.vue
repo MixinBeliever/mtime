@@ -1,7 +1,7 @@
 <template>
         <header :class="$store.state.isHeaderFixed?'fixed':''">
             <ul>
-                <router-link to="/index" tag="li" activeClass="active"><a href="javascript:;">logo</a></router-link>
+                <router-link to="/index" tag="li" activeClass="active"><a href="javascript:;"></a></router-link>
                 <router-link to="/index" tag="li" activeClass="active"><a href="javascript:;">首页</a></router-link>
                 <router-link to="/buy" tag="li" activeClass="active"><a href="javascript:;">购票</a></router-link>
                 <router-link to="/shop" tag="li" activeClass="active"><a href="javascript:;">商城</a></router-link>
@@ -35,6 +35,14 @@ header{
             box-sizing: border-box;
         }
       }
+      li:nth-of-type(1){
+        background: url(../../../public/imgs/logo.png) no-repeat center;
+        background-size: 100%;
+        background-origin: content-box;
+        width: 20%;
+        padding-left: 10px;
+      }
+
       .active{
           a{
             font-weight: bold;

@@ -1,7 +1,7 @@
 <template>
     <div class="nav">
         <ul>
-            <router-link to="" tag="li" v-for="(item,index) in navarr" :key="index">
+            <router-link to="/commerce" tag="li" v-for="(item,index) in navarr" :key="index">
                 <img :src="item.image" alt="">
                 <span>{{item.iconTitle}}</span>
             </router-link>
